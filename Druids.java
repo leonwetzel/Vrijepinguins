@@ -9,54 +9,49 @@ import java.util.List;
  * Hunters can't breed, nor can they die. Their only purpose is to kill all that
  * stands in their way, except other hunters.
  * 
- * @author leonwetzel
+ * @author Michaël van der Veen
  */
-public class Hunter implements Actor
+public class Druids implements Actor
 {
 	private Field field;
 	private Location location;
 	// hunters can't die, therefore the variable can be regarded as a constant
 	private static final boolean ALIVE = true;
-	private int hunger;
+	private int manaPool;
+	private int spells;
 
 	/**
 	 * Create a hunter
 	 * @param field
 	 * @param location
 	 */
-    public Hunter(Field field, Location location)
+    public Druids(Field field, Location location)
     {
         this.field = field;
         setLocation(location);
-        hunger = 10;
+        manaPool = 0;
     }	
 	
     /**
      * Way of behavior for a hunter.
      * @param newHunters
      */
-    public void act(List<Actor> hunter)
+    public void act(List<Actor> druids)
     {
-    	if(hunger>0){
-    		hunger--;
-    	}else{
-    		hunger = 0;
-    	}
     	Area area = field.getSameLocation(location);
     	// Move towards a location where a target could be
         Location newLocation = findTargets();
         if(newLocation == null) { 
-            if(hunger==0&&(area.getType()==2)){
-	        	area.special(-10);
-            }else if(hunger==0&&area.getType()==1){
+            if(area.getType()==3){
+	        	area.special();
+	        	manaPool++;
+            }else if(area.getType()==2&&area.getGroundLevel()<1){
             	area.special();
             	area.special();
             }
             // No target found - try to move to a free location.
             newLocation = getField().freeAdjacentLocation(getLocation());
             
-        }else{
-        	hunger=20;
         }
         // See if it was possible to move.
         if(newLocation != null){//)&&(hunger>0||!(area.getType()==1))) {
@@ -66,7 +61,8 @@ public class Hunter implements Actor
         }
     }
     
-    public void walk()
+    
+	public void walk()
     {
     	Area area = getField().getSameLocation(getLocation());
     	area.walkedOn();
@@ -87,7 +83,7 @@ public class Hunter implements Actor
         while(it.hasNext()) {
             Location where = it.next();
             Object actor = field.getObjectAt(where);
-            if(actor instanceof Animal) {
+            if(actor instanceof Cockroach) {
                 Animal animal = (Animal) actor;
                 if(animal.isAlive()) { 
                 	animal.setDead();
@@ -138,6 +134,47 @@ public class Hunter implements Actor
         }
         location = newLocation;
         field.place(this, newLocation);
+    }
+    
+    public void castSpells(List<Actor>actors)
+    {
+    	if(manaPool>100){
+			if(spells>=3){
+			spells = 0;
+	    	}
+	    	switch(spells){
+	    	case 0: castBunny(actors);
+	    	break;
+	    	case 1: castFox(actors);
+	    	break;
+	    	case 2: castPenguin(actors);
+	    	break;
+	    	}
+	    	spells++;
+	    	manaPool = 0;
+    	}
+    }
+    
+    private void castBunny(List<Actor>newBunny){
+    	List<Location> free = field.getFreeAdjacentLocations(getLocation());
+    	Location loc = free.remove(0);
+    	Rabbit young = new Rabbit(false,field,loc);
+    	newBunny.add(young);
+    	System.out.println("ABBRA CABUNNA!");
+    }
+    private void castFox(List<Actor>newFox){
+    	List<Location> free = field.getFreeAdjacentLocations(getLocation());
+    	Location loc = free.remove(0);
+    	Fox young = new Fox(false,field,loc);
+    	newFox.add(young);
+    	System.out.println("WHA DU DA FOX SAIWE!");
+    }
+    private void castPenguin(List<Actor>newPenguin){
+    	List<Location> free = field.getFreeAdjacentLocations(getLocation());
+    	Location loc = free.remove(0);
+    	Penguin young = new Penguin(false,field,loc);
+    	newPenguin.add(young);
+    	System.out.println("BLAQUE UNA WHIATJE U BACKE A PEGUAIN!");
     }
 	
 }

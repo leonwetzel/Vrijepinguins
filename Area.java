@@ -24,4 +24,7 @@ public interface Area {
 	public Field getField();
 	// get color.
 	public Color getColor();
+	public boolean isDeadly();
+	public int getType();
+	public void setLevel(int Level);
 }

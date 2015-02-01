@@ -4,45 +4,45 @@ import java.util.List;
 public class Radiation extends Ground
 {
     private int groundLevel;
-    private int expanded;
     private static final int GROUND_MAX_LEVEL = 10,GROUND_MIN_LEVEL=0;
 
     public Radiation(Field field, AreaLocation areaLocation)
     {
     	super(field, areaLocation);
     	groundLevel = 10;
-    	expanded = 0;
     	
     }
     public Radiation(Field field, AreaLocation areaLocation,int groundLevel)
     {
     	super(field, areaLocation);
     	this.groundLevel = groundLevel;
- 		//if(groundLevel>GROUND_MAX_LEVEL){
-    		/*List<AreaLocation> areaLocations = field.adjacentAreaLocations(areaLocation);
-    		for(int i = 0; i<areaLocations.size();i++){
-    			;
-    			Area area = field.getAreaAt(areaLocations.get(i));
-    			
-    			if(!(area instanceof Radiation)){
-    				area.special(this.groundLevel);
-    				
-    			}
-    		}*/
- 			
- 			
- 			
-    	//}
-    	expanded = 0;
-    	
     }
 	public Color getColor()
 	{
-		if(groundLevel>5){
-			return Color.YELLOW;
-		}else{
-			return Color.BLACK;
+		Color color = Color.YELLOW;
+		int lvl = groundLevel/10;
+		switch(lvl){
+		case 0:// case 1: case 2:
+			color =  new Color(229,181,150);
+			break;
+		case 1:
+			color =  new Color(229,181,110);
+			break;
+		case 2: 
+			color =  new Color(229,181,70);
+			break;
+		case 3:
+			color =  new Color(229,200,60);
+			break;
+		case 4: 
+			color =  new Color(240,230,50);
+			break;
+		case 5: 
+			color =  new Color(255,255,40);
+			break;	
+			default: break;
 		}
+		return color;
 	}
     
     public int getGroundLevel()
@@ -78,35 +78,21 @@ public class Radiation extends Ground
 	public void passTime(List<Area> newRadiation)
 	{
  		
- 		expand(newRadiation);
+ 		
  		
  		
     	this.lowerLevel(1);
  			
     	
 	}
- 	public void expand(List<Area> newRadiation)
- 	{
- 		if(groundLevel>GROUND_MAX_LEVEL&&expanded<1){
- 			expanded++;
-    		List<AreaLocation> areaLocations = field.adjacentAreaLocations(areaLocation);
-    		
-    		for(int i = 0; i<areaLocations.size();i++){
-    			;
-    			
-    			
-    			if(!(areaLocations instanceof Radiation)){
-    				AreaLocation aLoc = areaLocations.remove(0);
-    				field.clear(aLoc);
-    				Radiation expand = new Radiation(field,aLoc,groundLevel);
-    				newRadiation.add(expand);
-    			}
-    		}
- 		}
- 	}
+ 	
 	public void walkedOn()
 	{
-		//
+		
+		Object object= field.getSameAreaLocation(areaLocation);
+		if(object instanceof Cockroach){
+			groundLevel = 80;
+		}
 	}
  	
 	public void beingEaten()
@@ -155,5 +141,10 @@ public class Radiation extends Ground
     public Field getField()
     {
         return field;
+    }
+    
+    public void setLevel(int level)
+    {
+    	groundLevel = level;
     }
 }

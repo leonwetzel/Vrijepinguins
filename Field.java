@@ -20,7 +20,7 @@ public class Field
     private int depth, width;
     // Storage for the animals.
     private Object[][] field;
-    // GrassLevel.
+    // Storage for the grounds
     private Area[][] area;
     //private int grassLevel;
     // private static int grassMaxLevel = 4;
@@ -276,7 +276,7 @@ public class Field
 	{
 		Area area = getAreaAt(areaLocation);
 		if(area instanceof Grass){
-			//clear(areaLocation);
+			clear(areaLocation);
 			new Radiation(this,areaLocation,level);
 			//placeArea(radiation,areaLocation);
 		}else if(area instanceof Radiation){

@@ -19,7 +19,12 @@ public class Grass extends Ground
     	super(field, areaLocation);
     	groundLevel = 8;
     	setColor(groundLevel);
-    	
+    }
+    public Grass(Field field, AreaLocation areaLocation,int level)
+    {
+    	super(field, areaLocation);
+    	groundLevel = level;
+    	setColor(groundLevel);
     }
 	
     public int getGroundLevel()
@@ -143,5 +148,8 @@ public class Grass extends Ground
 		
 	}
 
+	public void setLevel(int level){
+		groundLevel = level;
+	}
 	
 }

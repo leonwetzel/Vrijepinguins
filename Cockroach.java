@@ -10,24 +10,24 @@ import java.util.Random;
  * @author David J. Barnes and Michael Kölling
  * @version 2011.07.31
  */
-public class Rabbit extends Animal
+public class Cockroach extends Animal
 {
     // Characteristics shared by all rabbits (class variables).
 
     // The age at which a rabbit can start to breed.
-    private static final int BREEDING_AGE = 5;
+    private static final int BREEDING_AGE = 7;
     // The age to which a rabbit can live.
-    private static final int MAX_AGE = 40;
+    private static final int MAX_AGE = 30;
     // The likelihood of a rabbit breeding.
-    private static final double BREEDING_PROBABILITY = 0.12;
-    // The real likelihood of a rabbit breeding.
-    private double breeding_probability;
+    private static final double BREEDING_PROBABILITY = 0.04;
     // The maximum number of births.
-    private static final int MAX_LITTER_SIZE = 4;
+    private static final int MAX_LITTER_SIZE = 2;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
     // 
     private static final int GRASS_FOOD_VALUE = 6;
+    
+    private Area newArea;
     //
     private int foodLevel;
     
@@ -44,7 +44,7 @@ public class Rabbit extends Animal
      * @param field The field currently occupied.
      * @param location The location within the field.
      */
-    public Rabbit(boolean randomAge, Field field, Location location)
+    public Cockroach(boolean randomAge, Field field, Location location)
     {
         super(field, location);
         
@@ -56,7 +56,6 @@ public class Rabbit extends Animal
         	age = 0;
         	foodLevel = GRASS_FOOD_VALUE;
         }
-        breeding_probability = BREEDING_PROBABILITY;
     }
     
     /**
@@ -64,18 +63,19 @@ public class Rabbit extends Animal
      * around. Sometimes it will breed or die of old age.
      * @param newRabbits A list to return newly born rabbits.
      */
-    public void act(List<Actor> newRabbits)
+    public void act(List<Actor> newCockroach)
     {
+    	newArea = null;
         incrementAge();
-        incrementHunger();
+        //incrementHunger();
         if(isAlive()) {
-            giveBirth(newRabbits);            
+            giveBirth(newCockroach);            
             // Try to move into a free location.
             Location newLocation = getField().freeAdjacentLocation(getLocation());
             if(newLocation != null) {
                 setLocation(newLocation);
                 findFood();
-                walk();
+                crawl();
             }
             else {
                 // Overcrowding.
@@ -97,30 +97,13 @@ public class Rabbit extends Animal
         }
     }
     
-    private void incrementHunger()
-    {
-        foodLevel--;
-        if(foodLevel <= 2) {
-           setBreedingChance(0.00);
-        }else if(foodLevel >= GRASS_FOOD_VALUE-2){
-        	setBreedingChance(0.16);
-        }else{
-        	setBreedingChance(BREEDING_PROBABILITY);
-        }
-        	
-    }
-    
-    private void setBreedingChance(double chance)
-    {
-    	breeding_probability = chance;
-    }
     
     /**
      * Check whether or not this rabbit is to give birth at this step.
      * New births will be made into free adjacent locations.
      * @param newRabbits A list to return newly born rabbits.
      */
-    private void giveBirth(List<Actor> newRabbits)
+    private void giveBirth(List<Actor> newCockroach)
     {
         // New rabbits are born into adjacent locations.
         // Get a list of adjacent free locations.
@@ -129,24 +112,24 @@ public class Rabbit extends Animal
         int births = breed();
         for(int b = 0; b < births && free.size() > 0; b++) {
             Location loc = free.remove(0);
-            Rabbit young = new Rabbit(false, field, loc);
-            newRabbits.add(young);
+            Cockroach young = new Cockroach(false, field, loc);
+            newCockroach.add(young);
         }
     }
         
-    private void findFood()
+    public void findFood()
     {
     	Field field = getField();
     	Area area = field.getSameLocation(getLocation());
-    	if(area instanceof Earth){
-	    	Earth earth = (Earth) area;
-    		int groundLevel = earth.getGroundLevel();
-	    	if(groundLevel>GRASS_FOOD_VALUE&&(earth.getType()!=2)){
-	    		foodLevel = GRASS_FOOD_VALUE;
-	    		earth.beingEaten();
-	    	}
+    	if(area.getType()==2){
+    		area.setLevel(50);
+    		foodLevel=1;
+    	}else{
+    		area.special(50);
+    		foodLevel=0;
     	}
-    }
+	}
+    
     
     /**
      * Generate a number representing the number of births,
@@ -156,7 +139,7 @@ public class Rabbit extends Animal
     private int breed()
     {
         int births = 0;
-        if(canBreed() && rand.nextDouble() <= breeding_probability) {
+        if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
             births = rand.nextInt(MAX_LITTER_SIZE) + 1;
         }
         return births;
@@ -168,6 +151,15 @@ public class Rabbit extends Animal
      */
     private boolean canBreed()
     {
-        return age >= BREEDING_AGE;
+        return age >= BREEDING_AGE&&(foodLevel==1);
+    }
+    
+    public Area newArea()
+    {
+    	if(newArea!=null)
+    	{
+    		return newArea;
+    	}
+    	return null;
     }
 }

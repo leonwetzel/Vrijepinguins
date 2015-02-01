@@ -93,8 +93,13 @@ public abstract class Animal implements Actor
     {
     	Area area = getField().getSameLocation(getLocation());
     	area.walkedOn();
-    	if(area instanceof Radiation){
+    	if(area.isDeadly()){
     		setDead();
     	}
+    }
+    public void crawl()
+    {
+    	Area area = getField().getSameLocation(getLocation());
+    	area.walkedOn();
     }
 }

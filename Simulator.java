@@ -97,6 +97,7 @@ public class Simulator implements Runnable {
         view.setColor(Fox.class, Color.BLUE);
         view.setColor(Penguin.class, Color.CYAN);
         view.setColor(Hunter.class, Color.RED);
+        view.setColor(Cockroach.class,new Color(127,51,0));
        
         
         // Add the actionlisteners
@@ -166,7 +167,8 @@ public class Simulator implements Runnable {
         step++;
 
         // Provide space for newborn animals.
-        List<Actor> newActors = new ArrayList<Actor>();        
+        List<Actor> newActors = new ArrayList<Actor>(); 
+        List<Area> newAreas = new ArrayList<Area>();
         // Let all rabbits act.
         for(Iterator<Actor> it = actors.iterator(); it.hasNext(); ) {
         	Actor actor = it.next();
@@ -174,10 +176,21 @@ public class Simulator implements Runnable {
             if(!actor.isAlive()) {
                 it.remove();
             }
+           if(actor instanceof Druids){
+        	   Druids druid = (Druids) actor;
+        	   druid.castSpells(newActors);
+           }
         }
-        List<Area> newAreas = new ArrayList<Area>();
+        
         for(Iterator<Area>it = areas.iterator();it.hasNext();){
         	Area area = it.next();
+        	/*if(area.getGroundLevel()<0)
+        	{
+        		if(area instanceof Grass){
+        			
+        			newAreas.add(new Radiation(field,area.getAreaLocation(),50));
+        		}
+        	}*/
         	area.passTime(newAreas);
         	//if(stepspecial!=null&&specialstep<20){
         	//	Radiation a= (Radiation) area.expand(newAreas);
@@ -241,15 +254,27 @@ public class Simulator implements Runnable {
                 	actors.add(penguin);
                 } else if(rand.nextDouble() <= HUNTER_CREATION_PROBABILITY) {
                 	//Location location = new Location(row, col);
-                	Hunter hunter = new Hunter(field, location);
-                	actors.add(hunter);
+                	if(rand.nextDouble()<=0.60){
+                		Hunter hunter = new Hunter(field, location);
+                		actors.add(hunter);
+                	}else{
+                		Druids druids = new Druids(field,location);
+                		actors.add(druids);
+                	}
+                	
                 }
+            	
+               /* else if(rand.nextDouble() <= HUNTER_CREATION_PROBABILITY) {
+                	//Location location = new Location(row, col);
+                	Cockroach cockroach = new Cockroach(false, field, location);
+                	actors.add(cockroach);
+                }*/
                 // else leave the location empty.
             	
             	AreaLocation areaLocation = new AreaLocation(row,col);
-            	Grass grass = new Grass(field,areaLocation);
-            	areas.add(grass);
-            	field.placeArea(grass, 0, 0);
+            	Earth earth = new Earth(field,areaLocation);
+            	areas.add(earth);
+            	//field.placeArea(grass, 0, 0);
                 
             }
         }
@@ -304,11 +329,21 @@ public class Simulator implements Runnable {
 	}
 	
 	public void specials(){
-		int row = DEFAULT_DEPTH/2;
-		int col = DEFAULT_WIDTH/2;
-		AreaLocation areaLocation = new AreaLocation(row,col);
-		Area area = new Radiation(field,areaLocation,40);
-		areas.add(area);
+		Random rand = Randomizer.getRandom();
+		for(int row = 0;row<DEFAULT_DEPTH;row++){
+			for(int col = 0; col<DEFAULT_WIDTH;col++){
+				if(rand.nextDouble()<=0.10){
+					Location location = new Location(row, col);
+                    Cockroach cockroach = new Cockroach(true, field, location);
+                    actors.add(cockroach);
+				}
+				AreaLocation areaLocation = new AreaLocation(row,col);
+            	Earth earth = new Earth(field,areaLocation,50);
+            	areas.add(earth);
+            	
+            	
+			}
+		}
 	}
 	
 	
