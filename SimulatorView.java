@@ -235,6 +235,8 @@ public class SimulatorView extends JFrame
         JMenu menu1 = new JMenu("Menu 1");
         JMenu menu2 = new JMenu("Menu 2");
         JMenu menu3 = new JMenu("Help");
+        JMenuItem about = new JMenuItem("About");
+        menu3.add(about);
         mbar.add(menu1);
         mbar.add(menu2);
         mbar.add(menu3);
