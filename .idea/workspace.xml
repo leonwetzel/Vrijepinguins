@@ -2,41 +2,24 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9dc11e9a-8fec-462a-861b-022435fa57c2" name="Default" comment="">
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/de/erichseifert/vectorgraphics2d/EPSGraphics2D.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/de/erichseifert/vectorgraphics2d/PDFGraphics2D.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/de/erichseifert/vectorgraphics2d/SVGGraphics2D.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/de/erichseifert/vectorgraphics2d/VectorGraphics2D.java" />
-      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/de/erichseifert/vectorgraphics2d/package-info.java" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Actor.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Animal.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Area.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\AreaLocation.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\CirkelDeel.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\CirkelDiagram.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Cockroach.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Counter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Druids.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Earth.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Field.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\FieldStats.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Fox.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Grass.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Ground.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\HolyLand.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Hunter.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Location.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Main.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\MusicPlayer.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\NewGroundException.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Penguin.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\PieChartSample.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\README.md" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Rabbit.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Radiation.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Randomizer.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\Simulator.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\SimulatorTest.java" afterPath="" />
-      <change type="DELETED" beforePath="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\SimulatorView.java" afterPath="" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/BitmapEncoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/CSVExporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/CSVImporter.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/Chart.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/ChartBuilder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/ChartColor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/Histogram.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/QuickChart.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/Series.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/SeriesColor.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/SeriesLineStyle.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/SeriesMarker.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/StyleManager.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/SwingWrapper.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/VectorGraphicsEncoder.java" />
+      <change type="NEW" beforePath="" afterPath="$PROJECT_DIR$/src/com/xeiam/xchart/XChartPanel.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/src/de/erichseifert/vectorgraphics2d/package-info.java" afterPath="$PROJECT_DIR$/src/de/erichseifert/vectorgraphics2d/package-info.java" />
+      <change type="MODIFICATION" beforePath="$PROJECT_DIR$/.idea/workspace.xml" afterPath="$PROJECT_DIR$/.idea/workspace.xml" />
     </list>
     <ignored path="Vrijepinguins.iws" />
     <ignored path=".idea/workspace.xml" />
@@ -64,58 +47,7 @@
     <favorites_list name="Vrijepinguins" />
   </component>
   <component name="FileEditorManager">
-    <leaf>
-      <file leaf-file-name="Main.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Main.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-              <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Radiation.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Radiation.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2380">
-              <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="HolyLand.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/HolyLand.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
-              <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Ground.java" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/Ground.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.12948857" vertical-offset="0" max-vertical-offset="919">
-              <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Earth.java" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/Earth.java">
-          <provider selected="true" editor-type-id="text-editor">
-            <state vertical-scroll-proportion="0.0" vertical-offset="2927" max-vertical-offset="3468">
-              <caret line="203" column="8" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="8" />
-              <folding />
-            </state>
-          </provider>
-        </entry>
-      </file>
-    </leaf>
+    <leaf />
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
@@ -146,7 +78,7 @@
     <OptionsSetting value="true" id="Edit" />
     <OptionsSetting value="true" id="Undo Check Out" />
     <OptionsSetting value="true" id="Get Latest Version" />
-    <ConfirmationsSetting value="0" id="Add" />
+    <ConfirmationsSetting value="2" id="Add" />
     <ConfirmationsSetting value="0" id="Remove" />
   </component>
   <component name="ProjectView">
@@ -216,13 +148,15 @@
     <property name="options.splitter.main.proportions" value="0.3" />
     <property name="options.splitter.details.proportions" value="0.2" />
     <property name="dynamic.classpath" value="false" />
+    <property name="last_opened_file_path" value="$USER_HOME$/Google Drive/tutoraat project java/VK/voor Leon/VK_NEW (1)/src/com" />
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\src\test" />
-      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\src\com\xeiam" />
-      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\src\bla" />
-      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins" />
+      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\src\com\xeiam\xchart\demo\charts\area" />
+      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\src\com\xeiam\xchart\com\xeiam\xchart\demo\internal" />
+      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\src\com\xeiam\xchart\com\xeiam\xchart\demo\charts\theme" />
+      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\src\com\xeiam\xchart\com\xeiam\xchart\demo\charts\scatter" />
+      <recent name="C:\Users\leonw_000\Documents\GitHub\Vrijepinguins\src\com\xeiam\xchart\com\xeiam\xchart\demo\charts\realtime" />
     </key>
   </component>
   <component name="RunManager" selected="Application.Main">
@@ -505,16 +439,16 @@
       <created>1422816245921</created>
       <option name="number" value="Default" />
       <updated>1422816245921</updated>
-      <workItem from="1422816251799" duration="2577000" />
+      <workItem from="1422816251799" duration="4827000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="2577000" />
+    <option name="totallyTimeSpent" value="4827000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="-8" y="-8" width="1936" height="1056" extended-state="6" />
-    <editor active="true" />
+    <editor active="false" />
     <layout>
       <window_info id="Changes" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Palette" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -531,10 +465,10 @@
       <window_info id="Run" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="2" side_tool="false" content_ui="tabs" />
       <window_info id="Terminal" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Designer" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Project" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
+      <window_info id="Project" active="true" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="true" weight="0.25" sideWeight="0.5" order="0" side_tool="false" content_ui="combo" />
       <window_info id="IDEtalk Messages" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
       <window_info id="Database" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
-      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32946146" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
+      <window_info id="Find" active="false" anchor="bottom" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.32867885" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Structure" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="Ant Build" active="false" anchor="right" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.25" sideWeight="0.5" order="1" side_tool="false" content_ui="tabs" />
       <window_info id="UI Designer" active="false" anchor="left" auto_hide="false" internal_type="DOCKED" type="DOCKED" visible="false" weight="0.33" sideWeight="0.5" order="-1" side_tool="false" content_ui="tabs" />
@@ -584,17 +518,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="0.2959739" vertical-offset="0" max-vertical-offset="3485">
           <caret line="16" column="2" selection-start-line="16" selection-start-column="2" selection-end-line="16" selection-end-column="2" />
-          <folding>
-            <element signature="imports" expanded="true" />
-            <element signature="e#1365#1366#0" expanded="true" />
-            <element signature="e#1413#1414#0" expanded="true" />
-          </folding>
+          <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Earth.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="2927" max-vertical-offset="3468">
+        <state vertical-scroll-proportion="0.4398682" vertical-offset="2861" max-vertical-offset="3468">
           <caret line="203" column="8" selection-start-line="203" selection-start-column="8" selection-end-line="203" selection-end-column="8" />
           <folding />
         </state>
@@ -604,24 +534,13 @@
       <provider selected="true" editor-type-id="text-editor">
         <state vertical-scroll-proportion="6.5114255" vertical-offset="0" max-vertical-offset="7990">
           <caret line="354" column="19" selection-start-line="354" selection-start-column="19" selection-end-line="354" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#14014#0" expanded="true" />
-            <element signature="imports" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/Main.java">
-      <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="680">
-          <caret line="24" column="47" selection-start-line="24" selection-start-column="47" selection-end-line="24" selection-end-column="47" />
           <folding />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Radiation.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="2380">
+        <state vertical-scroll-proportion="0.19604613" vertical-offset="0" max-vertical-offset="2380">
           <caret line="8" column="34" selection-start-line="8" selection-start-column="34" selection-end-line="8" selection-end-column="34" />
           <folding />
         </state>
@@ -629,7 +548,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/HolyLand.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.0" vertical-offset="0" max-vertical-offset="1598">
+        <state vertical-scroll-proportion="0.056013178" vertical-offset="0" max-vertical-offset="1598">
           <caret line="2" column="13" selection-start-line="2" selection-start-column="13" selection-end-line="2" selection-end-column="13" />
           <folding />
         </state>
@@ -637,8 +556,16 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/Ground.java">
       <provider selected="true" editor-type-id="text-editor">
-        <state vertical-scroll-proportion="0.12948857" vertical-offset="0" max-vertical-offset="919">
+        <state vertical-scroll-proportion="0.19604613" vertical-offset="0" max-vertical-offset="731">
           <caret line="8" column="25" selection-start-line="8" selection-start-column="25" selection-end-line="8" selection-end-column="25" />
+          <folding />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/Main.java">
+      <provider selected="true" editor-type-id="text-editor">
+        <state vertical-scroll-proportion="0.44810542" vertical-offset="0" max-vertical-offset="680">
+          <caret line="16" column="31" selection-start-line="16" selection-start-column="31" selection-end-line="16" selection-end-column="31" />
           <folding />
         </state>
       </provider>
