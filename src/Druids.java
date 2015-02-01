@@ -66,9 +66,6 @@ public class Druids implements Actor
     {
     	Area area = getField().getSameLocation(getLocation());
     	area.walkedOn();
-    	if(area instanceof Radiation){
-    		//setDead();
-    	}
     }
     
     /**

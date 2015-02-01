@@ -271,22 +271,6 @@ public class Field
     	
     	return field[areaLocation.getRow()][ areaLocation.getCol()];
     }
-    
-    public void special(int level,AreaLocation areaLocation)
-	{
-		Area area = getAreaAt(areaLocation);
-		if(area instanceof Grass){
-			clear(areaLocation);
-			new Radiation(this,areaLocation,level);
-			//placeArea(radiation,areaLocation);
-		}else if(area instanceof Radiation){
-			//clear(areaLocation);
-			new Radiation(this,areaLocation,level);
-			///placeArea(radiation,areaLocation);
-		}
-			
-		
-	}
-    
+
     
 }

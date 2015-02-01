@@ -397,36 +397,36 @@ public class SimulatorView extends JFrame
 		JFrame frameAbout = new JFrame("About");
     	JPanel container = new JPanel();
     	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-        //new grid for fox property inputs
-    	//int width =360,height=240;
     	String filePath = "extraFiles//images//background.jpg";
     	File file = new File(filePath);
-    	//JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
-    	//File selectedFile = fileChooser.getSelectedFile();
     	BufferedImage images = null;
-    	
     	try{
     		images = ImageIO.read(file);
     	}catch(Exception e){
     		System.out.println("Geen image, voer een image in bij de map extraFiles/Images genaamd background.jpg");
     	}
-    	
     	if(images!=null){
     		JLabel label = new JLabel(new ImageIcon(images));
     		container.add(label);
     	}
 		
-    	//JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
-    	
-    	//File selectedFile = fileChooster.getSelectedFile();
-    	
-        frameAbout.add(container);
+    	JPanel infoPanel = new JPanel();
+    	infoPanel.setBackground(Color.WHITE);
+    	JTextArea infoText = new JTextArea(
+    			"Aan dit programma zijn vele uren aan typen, lezen en nadenken besteed. \n"
+    			+"Dit werk is met uiterste zorg en moeite in elkaar gezet.\n"
+				+"Steel dit werk dus niet. Dat maakt ons heel verdrietig\n"
+    			+"\nDit programma is gepubliceerd door Vrijepinguins in opdracht van Dierenpark Groningen\n"
+    			+"\nAuteurs: Paul Koning, Jesse Stal, Michaël van der Veen en Leon Wetzel\n"
+    			+"\nCopyright Vrijepinguins © 2015 "
+    					);
+    	infoPanel.add(infoText);
+		frameAbout.add(infoPanel,BorderLayout.NORTH);
+        frameAbout.add(container,BorderLayout.SOUTH);
+        frameAbout.setSize(width, 600);
         frameAbout.pack();
-        //frameAbout.setResizable(false);
-        frameAbout.setLocation(200,200);
+        frameAbout.setResizable(false);
+        frameAbout.setLocation(400,0);
         frameAbout.setVisible(true);
-		//inputFrame();
-		
 	}
 }
