@@ -1,4 +1,4 @@
 # Vrijepinguins
-Repository for Vosse &amp; Konijnen Project by Vrijepinguims
+Repository for Vossen &amp; Konijnen Project by Vrijepinguims
 
 
