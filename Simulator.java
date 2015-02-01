@@ -108,7 +108,7 @@ public class Simulator implements Runnable {
         
         // Play the background music
         MusicPlayer player = new MusicPlayer();
-        //player.playMusic();
+        player.playMusic();
     }
     
     /**

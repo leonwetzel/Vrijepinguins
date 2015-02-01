@@ -22,7 +22,7 @@ public class MusicPlayer {
 	public MusicPlayer()
 	{
 		// prepare the background audio file
-		//prepareBackgroundGAudio();
+		prepareBackgroundGAudio();
 		// prepare the nuke audio file
 		// prepareNukeSound();
 		
@@ -60,7 +60,7 @@ public class MusicPlayer {
 	{
 	    try {
 	        // Haal het audiobestand op
-	    	File soundFile = new File("forest2.wav");
+	    	File soundFile = new File("extraFiles//sounds//forest.wav");
 	    	//URL url = new URL("sonata.wav");
 	        AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 	        // Ontleed het bestand voor gebruik
