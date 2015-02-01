@@ -209,16 +209,14 @@ public class SimulatorView extends JFrame
      */
     public void makeleftSidebarButtons(JFrame frame, JToolBar lbuttons)
     {  	
-        oneButton = new JButton("Step 1");
+        oneButton = new JButton("One Step");
         
-        hundredButton = new JButton("Step 4000");
+        hundredButton = new JButton("Play");
         
         resetButton = new JButton("Reset");
         
         stopButton = new JButton("Pause");     
-        
-        //userInput = new JButton("Animal Input");
-        
+              
         special = new JButton("Special Red Button");
         
         lbuttons.add(oneButton);
