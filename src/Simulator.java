@@ -50,6 +50,8 @@ public class Simulator implements Runnable {
     private int threadStep;
     // is the Thread running
     private boolean running;  
+    // musicplayer
+    private MusicPlayer player;
     
     /**
      * Construct a simulation field with default size.
@@ -107,7 +109,7 @@ public class Simulator implements Runnable {
         reset();
         
         // Play the background music
-        MusicPlayer player = new MusicPlayer();
+        player = new MusicPlayer();
         player.playMusic();
     }
     
@@ -347,6 +349,8 @@ public class Simulator implements Runnable {
             	
 			}
 		}
+		
+		player.playNukeSound();
 	}
 	
 	

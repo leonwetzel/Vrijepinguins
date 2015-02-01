@@ -423,7 +423,7 @@ public class SimulatorView extends JFrame
     	infoPanel.add(infoText);
 		frameAbout.add(infoPanel,BorderLayout.NORTH);
         frameAbout.add(container,BorderLayout.SOUTH);
-        frameAbout.setSize(width, 600);
+        //frameAbout.setSize(width 600);
         frameAbout.pack();
         frameAbout.setResizable(false);
         frameAbout.setLocation(400,0);

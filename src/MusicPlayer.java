@@ -1,4 +1,6 @@
 import java.io.*;
+import java.util.concurrent.TimeUnit;
+
 import javax.sound.sampled.*;
 
 /**
@@ -14,7 +16,7 @@ public class MusicPlayer {
 	// background music
 	private Clip clip;
 	// nuke sound
-	//private Clip nuke;
+	private Clip nuke;
 	
 	/**
 	 * Constructor
@@ -24,7 +26,7 @@ public class MusicPlayer {
 		// prepare the background audio file
 		prepareBackgroundGAudio();
 		// prepare the nuke audio file
-		// prepareNukeSound();
+		prepareNukeSound();
 		
 	}
 	
@@ -50,7 +52,19 @@ public class MusicPlayer {
 	 */
 	public void playNukeSound()
 	{
-		//nuke.start();
+		clip.stop();
+		nuke.start();
+		clip.start();
+		new java.util.Timer().schedule( 
+		        new java.util.TimerTask() {
+		            @Override
+		            public void run() {
+		                nuke.stop();
+		            }
+		        }, 
+		        5000 
+		);
+		prepareNukeSound();
 	}
 	
 	/**
@@ -79,11 +93,11 @@ public class MusicPlayer {
 	/**
 	 * 
 	 */
-	/*public void prepareNukeSound()
+	public void prepareNukeSound()
 	{
 	    try {
 	        // Haal het audiobestand op
-	    	File soundFile = new File("nuke.wav");
+	    	File soundFile = new File("extraFiles//sounds//nuke.wav");
 	    	
 	        AudioInputStream audioIn = AudioSystem.getAudioInputStream(soundFile);
 	        // Ontleed het bestand voor gebruik
@@ -97,5 +111,5 @@ public class MusicPlayer {
 	     } catch (LineUnavailableException e) {
 	        e.printStackTrace();
 	     }	
-	}*/
+	}
 }
