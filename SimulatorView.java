@@ -1,8 +1,9 @@
 import java.awt.*;
-
-
+import javax.imageio.*;
+import java.awt.image.*;
+import java.applet.*;
 import java.awt.event.*;
-
+import java.io.*;
 import javax.swing.*;
 
 import java.util.LinkedHashMap;
@@ -47,6 +48,8 @@ public class SimulatorView extends JFrame
     //JFrames
     JFrame aInput;
     JPanel container;
+    JMenuItem about;
+    JFrame aboutFrame;
     
     /**
      * Create a view of the given width and height.
@@ -92,7 +95,7 @@ public class SimulatorView extends JFrame
     	JFrame frame = new JFrame("Diereigenschappen");
     	container = new JPanel();
     	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-        frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //new grid for fox property inputs
         foxProperties();
         //new grid for rabbit property inputs
@@ -235,7 +238,7 @@ public class SimulatorView extends JFrame
         JMenu menu1 = new JMenu("Menu 1");
         JMenu menu2 = new JMenu("Menu 2");
         JMenu menu3 = new JMenu("Help");
-        JMenuItem about = new JMenuItem("About");
+        	about = new JMenuItem("About");
         menu3.add(about);
         mbar.add(menu1);
         mbar.add(menu2);
@@ -389,4 +392,41 @@ public class SimulatorView extends JFrame
             }
         }
     }
+
+	public void about() {
+		JFrame frameAbout = new JFrame("About");
+    	JPanel container = new JPanel();
+    	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+        //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
+        //new grid for fox property inputs
+    	//int width =360,height=240;
+    	String filePath = "extraFiles//images//background.jpg";
+    	File file = new File(filePath);
+    	//JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
+    	//File selectedFile = fileChooser.getSelectedFile();
+    	BufferedImage images = null;
+    	
+    	try{
+    		images = ImageIO.read(file);
+    	}catch(Exception e){
+    		System.out.println("Geen image, voer een image in bij de map extraFiles/Images genaamd background.jpg");
+    	}
+    	
+    	if(images!=null){
+    		JLabel label = new JLabel(new ImageIcon(images));
+    		container.add(label);
+    	}
+		
+    	//JFileChooser fileChooser = new JFileChooser(System.getProperty("user.dir"));
+    	
+    	//File selectedFile = fileChooster.getSelectedFile();
+    	
+        frameAbout.add(container);
+        frameAbout.pack();
+        //frameAbout.setResizable(false);
+        frameAbout.setLocation(200,200);
+        frameAbout.setVisible(true);
+		//inputFrame();
+		
+	}
 }

@@ -143,6 +143,9 @@ public class Simulator implements Runnable {
     	view.special.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { specials(); }
     	});
+    	view.about.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) { view.about(); }
+    	});
     }
     
     /**
