@@ -127,22 +127,22 @@ public class Simulator implements Runnable {
      */
     public void addListeners()
     {
-    	view.oneButton.addActionListener(new ActionListener() {
+    	view.button.oneButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { start(1); }
         });
-    	view.hundredButton.addActionListener(new ActionListener() {
+    	view.button.hundredButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { start(-1); }
     	});
-    	view.resetButton.addActionListener(new ActionListener() {
+    	view.button.resetButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { reset(); }
     	});
-    	view.stopButton.addActionListener(new ActionListener() {
+    	view.button.stopButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { stop(); }
     	});
     	view.userInput.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { view.inputFrame(); }
     	});
-    	view.special.addActionListener(new ActionListener() {
+    	view.button.special.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { specials(); }
     	});
     	view.about.addActionListener(new ActionListener() {
