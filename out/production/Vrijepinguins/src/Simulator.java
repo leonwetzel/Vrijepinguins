@@ -1,9 +1,11 @@
+import javax.swing.*;
+import java.awt.*;
 import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.awt.Color;
 import java.awt.event.*;
+import javax.swing.KeyStroke;
 
 /**
  * A simple predator-prey simulator, based on a rectangular field
@@ -128,7 +130,7 @@ public class Simulator implements Runnable {
     public void addListeners()
     {
     	view.button.oneButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) { start(1); }
+            public void actionPerformed(ActionEvent e) { start(1);}
         });
     	view.button.hundredButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { start(-1); }

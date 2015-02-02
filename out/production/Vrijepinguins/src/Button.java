@@ -1,14 +1,7 @@
-import java.awt.BorderLayout;
-import java.awt.Dimension;
-import java.awt.GridLayout;
+import java.awt.*;
+import java.awt.event.KeyEvent;
 
-import javax.swing.Box;
-import javax.swing.JButton;
-import javax.swing.JFrame;
-import javax.swing.JLabel;
-import javax.swing.JPanel;
-import javax.swing.JTextField;
-import javax.swing.JToolBar;
+import javax.swing.*;
 
 public class Button{
 	
@@ -130,22 +123,39 @@ public class Button{
      * @param frame
      */
     public void makeleftSidebarButtons(JFrame frame, JPanel buttons)
-    {  	
+    {
+        final int SHORTCUT_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
+
         oneButton = new JButton("One Step");
-        
+        oneButton.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+                put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_SPACE,0), "Space_pressed");
+        buttons.add(oneButton);
+
         hundredButton = new JButton("Play");
-        
+        hundredButton.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+                put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H,0), "H_pressed");
+        buttons.add(hundredButton);
+
         resetButton = new JButton("Reset");
-        
-        stopButton = new JButton("Pause");     
+        resetButton.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+                put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R,0), "R_pressed");
+        buttons.add(resetButton);
+
+        stopButton = new JButton("Pause");
+        stopButton.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+                put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P,0), "P_pressed");
+        buttons.add(stopButton);
         
         special = new JButton("Special");
-        
-        buttons.add(oneButton);
-        buttons.add(hundredButton);  
-        buttons.add(resetButton);
-        buttons.add(stopButton);
+        special.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+                put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER,0), "Enter_pressed");
         buttons.add(special);
+        
+        //buttons.add(oneButton);
+        //buttons.add(hundredButton);
+        //buttons.add(resetButton);
+        //buttons.add(stopButton);
+        //buttons.add(special);
         
         frame.add(buttons);
 
