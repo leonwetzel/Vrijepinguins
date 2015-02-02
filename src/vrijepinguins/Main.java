@@ -1,4 +1,6 @@
-package vrijepinguins.controller;
+package vrijepinguins;
+
+import vrijepinguins.controller.Simulator;
 
 /**
  * 
@@ -12,7 +14,7 @@ public class Main {
 	private Simulator simulator;
 	
 	/**
-	 * vrijepinguins.controller.Main methode wordt als eerste geroepen en roept simulator aan.
+	 * vrijepinguins.Main methode wordt als eerste geroepen en roept simulator aan.
 	 * @param args
 	 */
 	public static void main(String[] args) {

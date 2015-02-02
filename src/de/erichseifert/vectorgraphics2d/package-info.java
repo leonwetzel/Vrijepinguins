@@ -20,6 +20,6 @@
  */
 
 /**
- * vrijepinguins.controller.Main classes.
+ * vrijepinguins.Main classes.
  */
 package de.erichseifert.vectorgraphics2d;
