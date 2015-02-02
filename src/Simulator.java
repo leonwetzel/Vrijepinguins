@@ -25,6 +25,7 @@ public class Simulator implements Runnable {
     private static final int DEFAULT_DEPTH = 80;
     // The probability that a fox will be created in any given grid position.
     private static final double FOX_CREATION_PROBABILITY = 0.02;
+    private double fox_creation_probability;
     // The probability that a rabbit will be created in any given grid position.
     private static final double RABBIT_CREATION_PROBABILITY = 0.08; 
     // The probability that a penguin will be created in any given grid position.
@@ -52,6 +53,8 @@ public class Simulator implements Runnable {
     private boolean running;  
     // musicplayer
     private MusicPlayer player;
+    //test 
+   
     
     /**
      * Construct a simulation field with default size.
@@ -59,6 +62,8 @@ public class Simulator implements Runnable {
     public Simulator()
     {
         this(DEFAULT_DEPTH, DEFAULT_WIDTH);
+        fox_creation_probability = FOX_CREATION_PROBABILITY;
+        
     }
     
     /**
@@ -128,7 +133,7 @@ public class Simulator implements Runnable {
     public void addListeners()
     {
     	view.button.oneButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) { start(1); }
+            public void actionPerformed(ActionEvent e) { start(1);  }
         });
     	view.button.hundredButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { start(-1); }
@@ -141,6 +146,9 @@ public class Simulator implements Runnable {
     	});
     	view.userInput.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { view.inputFrame(); }
+    	});
+    	view.submit.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) { view.getInput(); reset(); }
     	});
     	view.button.special.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { specials(); }
@@ -247,15 +255,15 @@ public class Simulator implements Runnable {
             	Location location = new Location(row,col);
             	if(rand.nextDouble() <= FOX_CREATION_PROBABILITY) {
                     //Location location = new Location(row, col);
-                    Fox fox = new Fox(true, field, location);
+                    Fox fox = new Fox(true, field, location, view.getFoxArray()[0], view.getFoxArray()[1], view.getFoxArray()[2]);
                     actors.add(fox);
                 } else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
                     //Location location = new Location(row, col);
-                    Rabbit rabbit = new Rabbit(true, field, location);
+                    Rabbit rabbit = new Rabbit(true, field, location, view.getRabbitArray()[0], view.getRabbitArray()[1], view.getRabbitArray()[2]);
                     actors.add(rabbit);
                 } else if(rand.nextDouble()<= PENGUIN_CREATION_PROBABILITY){
                 	//Location location = new Location(row, col);
-                	Penguin penguin = new Penguin(true,field,location);
+                	Penguin penguin = new Penguin(true, field, location, view.getPenguinArray()[0], view.getPenguinArray()[1], view.getPenguinArray()[2]);
                 	actors.add(penguin);
                 } else if(rand.nextDouble() <= HUNTER_CREATION_PROBABILITY) {
                 	//Location location = new Location(row, col);
@@ -263,7 +271,7 @@ public class Simulator implements Runnable {
                 		Hunter hunter = new Hunter(field, location);
                 		actors.add(hunter);
                 	}else{
-                		Druids druids = new Druids(field,location);
+                		Druids druids = new Druids(field, location, view.getFoxArray(), view.getRabbitArray(), view.getPenguinArray());
                 		actors.add(druids);
                 	}
                 	
@@ -355,5 +363,7 @@ public class Simulator implements Runnable {
 		player.playNukeSound();
 	}
 	
-	
+public SimulatorView getSimView(){
+	return view;
+}
 }

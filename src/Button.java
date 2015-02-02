@@ -9,10 +9,11 @@ import javax.swing.JLabel;
 import javax.swing.JPanel;
 import javax.swing.JTextField;
 import javax.swing.JToolBar;
+import javax.swing.JSlider;
 
 public class Button{
 	
-	SimulatorView sim;
+	Simulator sim;
 	JButton submit;
     
  // buttons
@@ -24,21 +25,21 @@ public class Button{
     JButton special;
     
     //JTextFields van penguin
-    JTextField mAgeField3;
-    JTextField aNakField3;
-    JTextField vLefField3;
+    JSlider mAgeField3;
+    JSlider aNakField3;
+    JSlider vLefField3;
     
     //JTextFields van rabbit
-    JTextField mAgeField2;
-    JTextField aNakField2;
-    JTextField vLefField2;
+    JSlider mAgeField2;
+    JSlider aNakField2;
+    JSlider vLefField2;
     
     //JTextFields van fox
-    JTextField mAgeField;
-    JTextField aNakField;
-    JTextField vLefField;
+    JSlider mAgeField;
+    JSlider aNakField;
+    JSlider vLefField;
     
-    public void rabbitProperties(){
+    public void rabbitProperties(JPanel panel){
     	JPanel cRabbit = new JPanel();
         cRabbit.setLayout(new BorderLayout());
         JPanel gridLayoutPane2 = new JPanel(); 
@@ -46,13 +47,25 @@ public class Button{
         gridLayoutPane2.setLayout(gridLayout2);
         
         JLabel mAge2 = new JLabel("Max Leeftijd");
-        JLabel aNak2 = new JLabel("Aantal nakomelingen");
+        JLabel aNak2 = new JLabel("Max Aantal nakomelingen");
         JLabel vLef2 = new JLabel("Voortplantingsleeftijd");
         JLabel animalLabel2 = new JLabel("Rabbit Eigenschappen:");
         
-        mAgeField2 = new JTextField();
-        aNakField2 = new JTextField();
-        vLefField2 = new JTextField();
+        mAgeField2 = new JSlider(JSlider.HORIZONTAL, 0, 200, 100);
+        mAgeField2.setMinorTickSpacing(2);
+        mAgeField2.setMajorTickSpacing(10);
+        mAgeField2.setLabelTable(mAgeField.createStandardLabels(40));
+        mAgeField2.setPaintLabels(true);
+        aNakField2 = new JSlider(JSlider.HORIZONTAL, 0, 40, 20);
+        aNakField2.setMinorTickSpacing(2);
+        aNakField2.setMajorTickSpacing(10);
+        aNakField2.setLabelTable(mAgeField.createStandardLabels(5));
+        aNakField2.setPaintLabels(true);
+        vLefField2 = new JSlider(JSlider.HORIZONTAL, 0, 20, 10);
+        vLefField2.setMinorTickSpacing(2);
+        vLefField2.setMajorTickSpacing(10);
+        vLefField2.setLabelTable(mAgeField.createStandardLabels(4));
+        vLefField2.setPaintLabels(true);
         
         gridLayoutPane2.add(mAge2);
         gridLayoutPane2.add(mAgeField2);
@@ -62,12 +75,12 @@ public class Button{
         gridLayoutPane2.add(aNakField2);
         cRabbit.add(gridLayoutPane2, BorderLayout.CENTER);
         cRabbit.add(animalLabel2, BorderLayout.NORTH);
-        sim.container.add(cRabbit);
-        sim.container.add(Box.createRigidArea(new Dimension(0,10)));
+        panel.add(cRabbit);
+        panel.add(Box.createRigidArea(new Dimension(0,10)));
     }
     
     
-    public void penguinProperties(){
+    public void penguinProperties(JPanel panel){
     	JPanel cPenguin = new JPanel();
         cPenguin.setLayout(new BorderLayout());
         JPanel gridLayoutPane3 = new JPanel(); 
@@ -75,13 +88,25 @@ public class Button{
         gridLayoutPane3.setLayout(gridLayout3);
         
         JLabel mAge3 = new JLabel("Max Leeftijd");
-        JLabel aNak3 = new JLabel("Aantal nakomelingen");
+        JLabel aNak3 = new JLabel("Max Aantal nakomelingen");
         JLabel vLef3 = new JLabel("Voortplantingsleeftijd");
         JLabel animalLabel3 = new JLabel("Penguin Eigenschappen:");
         
-        mAgeField3 = new JTextField();
-        aNakField3 = new JTextField();
-        vLefField3 = new JTextField();
+        mAgeField3 = new JSlider(JSlider.HORIZONTAL, 0, 200, 100);
+        mAgeField3.setMinorTickSpacing(2);
+        mAgeField3.setMajorTickSpacing(10);
+        mAgeField3.setLabelTable(mAgeField.createStandardLabels(40));
+        mAgeField3.setPaintLabels(true);
+        aNakField3 = new JSlider(JSlider.HORIZONTAL, 0, 40, 20);
+        aNakField3.setMinorTickSpacing(2);
+        aNakField3.setMajorTickSpacing(10);
+        aNakField3.setLabelTable(mAgeField.createStandardLabels(5));
+        aNakField3.setPaintLabels(true);
+        vLefField3 = new JSlider(JSlider.HORIZONTAL, 0, 20, 10);
+        vLefField3.setMinorTickSpacing(2);
+        vLefField3.setMajorTickSpacing(10);
+        vLefField3.setLabelTable(mAgeField.createStandardLabels(4));
+        vLefField3.setPaintLabels(true);
         
         gridLayoutPane3.add(mAge3);
         gridLayoutPane3.add(mAgeField3);
@@ -91,11 +116,11 @@ public class Button{
         gridLayoutPane3.add(aNakField3);
         cPenguin.add(gridLayoutPane3, BorderLayout.CENTER);
         cPenguin.add(animalLabel3, BorderLayout.NORTH);
-        sim.container.add(cPenguin);
-        sim.container.add(Box.createRigidArea(new Dimension(0,10)));
+        panel.add(cPenguin);
+        panel.add(Box.createRigidArea(new Dimension(0,10)));
     }
     
-    public void foxProperties(){
+    public void foxProperties(JPanel panel){
     	 JPanel cFox = new JPanel();
          cFox.setLayout(new BorderLayout());
          JPanel gridLayoutPane = new JPanel(); 
@@ -103,13 +128,25 @@ public class Button{
          gridLayoutPane.setLayout(gridLayout);
          
          JLabel mAge = new JLabel("Max Leeftijd");
-         JLabel aNak = new JLabel("Aantal nakomelingen");
+         JLabel aNak = new JLabel("Max Aantal nakomelingen");
          JLabel vLef = new JLabel("Voortplantingsleeftijd");
          JLabel animalLabel = new JLabel("Fox Eigenschappen:");
          
-         mAgeField = new JTextField();
-         aNakField = new JTextField();
-         vLefField = new JTextField();
+         mAgeField = new JSlider(JSlider.HORIZONTAL, 0, 200, 100);
+         mAgeField.setMinorTickSpacing(2);
+         mAgeField.setMajorTickSpacing(10);
+         mAgeField.setLabelTable(mAgeField.createStandardLabels(40));
+         mAgeField.setPaintLabels(true);
+         aNakField = new JSlider(JSlider.HORIZONTAL, 0, 40, 20);
+         aNakField.setMinorTickSpacing(2);
+         aNakField.setMajorTickSpacing(10);
+         aNakField.setLabelTable(mAgeField.createStandardLabels(5));
+         aNakField.setPaintLabels(true);
+         vLefField = new JSlider(JSlider.HORIZONTAL, 0, 20, 10);
+         vLefField.setMinorTickSpacing(2);
+         vLefField.setMajorTickSpacing(10);
+         vLefField.setLabelTable(mAgeField.createStandardLabels(4));
+         vLefField.setPaintLabels(true);
          
          gridLayoutPane.add(mAge);
          gridLayoutPane.add(mAgeField);
@@ -117,12 +154,10 @@ public class Button{
          gridLayoutPane.add(vLefField);
          gridLayoutPane.add(aNak);
          gridLayoutPane.add(aNakField);
-         submit = new JButton("Submit");
-         gridLayoutPane.add(submit);
          cFox.add(gridLayoutPane, BorderLayout.CENTER);
          cFox.add(animalLabel, BorderLayout.NORTH);
-         sim.container.add(cFox);
-         sim.container.add(Box.createRigidArea(new Dimension(0,10)));
+         panel.add(cFox);
+         panel.add(Box.createRigidArea(new Dimension(0,10)));
     }
     
     /**
@@ -140,6 +175,8 @@ public class Button{
         stopButton = new JButton("Pause");     
         
         special = new JButton("Special");
+        
+        submit = new JButton("Submit");
         
         buttons.add(oneButton);
         buttons.add(hundredButton);  

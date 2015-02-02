@@ -15,12 +15,16 @@ public class Fox extends Animal
     
     // The age at which a fox can start to breed.
     private static final int BREEDING_AGE = 15;
+    private int breeding_age = BREEDING_AGE;
+    
     // The age to which a fox can live.
     private static final int MAX_AGE = 150;
+    public int max_age = MAX_AGE;
     // The likelihood of a fox breeding.
     private static final double BREEDING_PROBABILITY = 0.08;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 2;
+    private int max_litter_size = MAX_LITTER_SIZE;
     // The food value of a single rabbit. In effect, this is the
     // number of steps a fox can go before it has to eat again.
     private static final int RABBIT_FOOD_VALUE = 9;
@@ -32,7 +36,9 @@ public class Fox extends Animal
     private int age;
     // The fox's food level, which is increased by eating rabbits.
     private int foodLevel;
-
+    
+    //test
+    SimulatorView view;
     /**
      * Create a fox. A fox can be created as a new born (age zero
      * and not hungry) or with a random age and food level.
@@ -41,11 +47,23 @@ public class Fox extends Animal
      * @param field The field currently occupied.
      * @param location The location within the field.
      */
-    public Fox(boolean randomAge, Field field, Location location)
+    public Fox(boolean randomAge, Field field, Location location, Integer mAge, Integer aNak, Integer vLef)
     {
         super(field, location);
+        if(mAge == 0){
+        }else{
+        	max_age = mAge;
+        }
+        if(aNak == 0){
+        }else{
+        	max_litter_size = aNak;
+        }
+        if(vLef == 0){
+        }else{
+        	breeding_age = vLef;
+        }
         if(randomAge) {
-            age = rand.nextInt(MAX_AGE);
+            age = rand.nextInt(max_age);
             foodLevel = rand.nextInt(RABBIT_FOOD_VALUE);
         }
         else {
@@ -91,7 +109,7 @@ public class Fox extends Animal
     private void incrementAge()
     {
         age++;
-        if(age > MAX_AGE) {
+        if(age > max_age) {
             setDead();
         }
     }
@@ -146,7 +164,7 @@ public class Fox extends Animal
         int births = breed();
         for(int b = 0; b < births && free.size() > 0; b++) {
             Location loc = free.remove(0);
-            Fox young = new Fox(false, field, loc);
+            Fox young = new Fox(false, field, loc, max_age, max_litter_size, breeding_age);
             newFoxes.add(young);
         }
     }
@@ -160,7 +178,7 @@ public class Fox extends Animal
     {
         int births = 0;
         if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
-            births = rand.nextInt(MAX_LITTER_SIZE) + 1;
+            births = rand.nextInt(max_litter_size) + 1;
         }
         return births;
     }
@@ -170,6 +188,16 @@ public class Fox extends Animal
      */
     private boolean canBreed()
     {
-        return age >= BREEDING_AGE;
+        return age >= breeding_age;
+    }
+    
+    public Integer getMaxLitterSize(){
+    	return max_litter_size;
+    }
+    public Integer getMaxAge(){
+    	return max_age;
+    }
+   	 public Integer getBreedingAge(){
+    	return breeding_age;
     }
 }
