@@ -3,6 +3,7 @@
 import vrijepinguins.controller.FieldStats;
 import vrijepinguins.model.Area;
 import vrijepinguins.model.Field;
+import vrijepinguins.view.Button;
 
 import java.awt.*;
 
@@ -41,8 +42,10 @@ public class SimulatorView extends JFrame
     private Map<Class, Color> colors;
     // A statistics object computing and storing simulation information
     private FieldStats stats;
+
     private String populationDetails = "Hunter: 0 Rabbit: 0 Penguin: 0 Druids: 0 Fox: 0 ";
     
+
     // MenuItems
     JMenuItem about;
     JMenuItem userInput;
@@ -381,4 +384,25 @@ public class SimulatorView extends JFrame
         frameAbout.setLocation(400,0);
         frameAbout.setVisible(true);
 	}
+
+    /**
+     * Getter for button
+     * @return a button object
+     */
+    public Button getButton()
+    {
+        return button;
+    }
+
+    public JMenuItem getAbout() {
+        return about;
+    }
+
+    public JMenuItem getUserInput() {
+        return userInput;
+    }
+
+    public JMenuItem getSwitchView() {
+        return switchView;
+    }
 }

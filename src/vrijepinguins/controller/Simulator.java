@@ -1,6 +1,7 @@
 ﻿package vrijepinguins.controller;
 
 import vrijepinguins.model.*;
+import vrijepinguins.view.*;
 
 import java.awt.*;
 import java.util.Random;
@@ -56,6 +57,7 @@ public class Simulator implements Runnable {
     private boolean running;  
     // musicplayer
     private MusicPlayer player;
+
     
     /**
      * Construct a simulation field with default size.
@@ -131,28 +133,31 @@ public class Simulator implements Runnable {
      */
     public void addListeners()
     {
-    	view.button.oneButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) { start(1);}
+    	view.getButton().getOneButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                start(1);
+            }
         });
-    	view.button.hundredButton.addActionListener(new ActionListener() {
-    		public void actionPerformed(ActionEvent e) { start(-1); }
+    	view.getButton().getHundredButton().addActionListener(new ActionListener() {
+            public void actionPerformed(ActionEvent e) {
+                start(-1); }
     	});
-    	view.button.resetButton.addActionListener(new ActionListener() {
+    	view.getButton().getResetButton().addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { reset(); }
     	});
-    	view.button.stopButton.addActionListener(new ActionListener() {
+    	view.getButton().getStopButton().addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { stop(); }
     	});
-    	view.userInput.addActionListener(new ActionListener() {
+    	view.getUserInput().addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { view.inputFrame(); }
     	});
-    	view.button.special.addActionListener(new ActionListener() {
+    	view.getButton().getSpecial().addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { specials(); }
     	});
-    	view.about.addActionListener(new ActionListener() {
+    	view.getAbout().addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { view.about(); }
     	});
-    	view.switchView.addActionListener(new ActionListener(){
+    	view.getSwitchView().addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent e) { view.about(); }
     	});
     }

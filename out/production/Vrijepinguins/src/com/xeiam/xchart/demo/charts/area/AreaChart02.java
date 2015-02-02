@@ -30,7 +30,7 @@ import com.xeiam.xchart.demo.charts.ExampleChart;
  * <p>
  * Demonstrates the following:
  * <ul>
- * <li>github.model.Area Chart
+ * <li>vrijepinguins.model.Area Chart
  * <li>null Y-Axis values
  * <li>ChartBuilder
  */

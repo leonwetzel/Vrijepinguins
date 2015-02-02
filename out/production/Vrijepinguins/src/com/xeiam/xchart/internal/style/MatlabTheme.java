@@ -235,7 +235,7 @@ public class MatlabTheme implements Theme {
     return 44;
   }
 
-  // Chart Plot github.model.Area ///////////////////////////////
+  // Chart Plot vrijepinguins.model.Area ///////////////////////////////
 
   @Override
   public boolean isPlotGridLinesVisible() {
@@ -300,7 +300,7 @@ public class MatlabTheme implements Theme {
     return true;
   }
 
-  // Line, Scatter, github.model.Area Charts ///////////////////////////////
+  // Line, Scatter, vrijepinguins.model.Area Charts ///////////////////////////////
 
   @Override
   public int getMarkerSize() {
