@@ -19,14 +19,20 @@ public class Druids implements Actor
 	private static final boolean ALIVE = true;
 	private int manaPool;
 	private int spells;
-
+	private int[] fox;
+	private int[] rabbit;
+	private int[] penguin;
+	
 	/**
 	 * Create a hunter
 	 * @param field
 	 * @param location
 	 */
-    public Druids(Field field, Location location)
+    public Druids(Field field, Location location, int[] fox, int[] rabbit, int[] penguin)
     {
+    	this.fox = fox;
+    	this.rabbit = rabbit;
+    	this.penguin = penguin;
         this.field = field;
         setLocation(location);
         manaPool = 0;
@@ -155,21 +161,21 @@ public class Druids implements Actor
     private void castBunny(List<Actor>newBunny){
     	List<Location> free = field.getFreeAdjacentLocations(getLocation());
     	Location loc = free.remove(0);
-    	Rabbit young = new Rabbit(false,field,loc);
+    	Rabbit young = new Rabbit(false, field, loc, rabbit[0], rabbit[1], rabbit[2]);
     	newBunny.add(young);
     	System.out.println("ABBRA CABUNNA!");
     }
     private void castFox(List<Actor>newFox){
     	List<Location> free = field.getFreeAdjacentLocations(getLocation());
     	Location loc = free.remove(0);
-    	Fox young = new Fox(false,field,loc);
+    	Fox young = new Fox(false, field, loc, fox[0], fox[1], fox[2]);
     	newFox.add(young);
     	System.out.println("WHA DU DA FOX SAIWE!");
     }
     private void castPenguin(List<Actor>newPenguin){
     	List<Location> free = field.getFreeAdjacentLocations(getLocation());
     	Location loc = free.remove(0);
-    	Penguin young = new Penguin(false,field,loc);
+    	Penguin young = new Penguin(false, field, loc, penguin[0], penguin[1], penguin[2]);
     	newPenguin.add(young);
     	System.out.println("BLAQUE UNA WHIATJE U BACKE A PEGUAIN!");
     }
