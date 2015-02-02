@@ -5,11 +5,11 @@ import java.io.*;
 import javax.sound.sampled.*;
 
 /**
- * Class for the background music in the simulator
- * @author leonwetzel
- *
  * Special thanks go out to the one who published his/her notes
  * at http://www3.ntu.edu.sg/home/ehchua/programming/java/J8c_PlayingSound.html
+ *
+ * Class for the background music in the simulator
+ * @author leonwetzel
  * 
  */
 public class MusicPlayer {
