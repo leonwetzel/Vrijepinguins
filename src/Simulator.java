@@ -184,31 +184,21 @@ public class Simulator implements Runnable {
             if(!actor.isAlive()) {
                 it.remove();
             }
-           if(actor instanceof Druids){
-        	   Druids druid = (Druids) actor;
-        	   druid.castSpells(newActors);
-           }
+            if(actor instanceof Druids){
+            	Druids druid = (Druids) actor;
+            	druid.castSpells(newActors);
+            }
         }
         
         for(Iterator<Area>it = areas.iterator();it.hasNext();){
         	Area area = it.next();
-        	/*if(area.getGroundLevel()<0)
-        	{
-        		if(area instanceof Grass){
-        			
-        			newAreas.add(new Radiation(field,area.getAreaLocation(),50));
-        		}
-        	}*/
         	area.passTime(newAreas);
-        	//if(stepspecial!=null&&specialstep<20){
-        	//	Radiation a= (Radiation) area.expand(newAreas);
-        	//}
         }
                
         // Add new actors to the main lists.
         actors.addAll(newActors);
         areas.addAll(newAreas);
-
+        //view.lijnDiagram.putData(populationDetails);
         view.showStatus(step, field);
     }
         
@@ -237,14 +227,7 @@ public class Simulator implements Runnable {
         Random rand = Randomizer.getRandom();
         field.clear();
         areas.clear();
-        //AreaLocation areaLocation = new AreaLocation(0,0);
-    	//Radiation radiation = new Radiation(field,areaLocation);
-    	
-    	//areas.add(radiation);
-    	
-    	
-    	
-    	
+
         for(int row = 0; row < field.getDepth(); row++) {
             for(int col = 0; col < field.getWidth(); col++) {
             	Location location = new Location(row,col);
@@ -292,11 +275,11 @@ public class Simulator implements Runnable {
      * Start the thread
      * @param steps -1 for infinite; 
      */
-    public void start(int steps){
+     public void start(int steps){
     	threadStep = steps;
     	running = true;
     	new Thread(this).start();
-    }
+     }
     
 
     
@@ -321,8 +304,8 @@ public class Simulator implements Runnable {
      * Make simulator steps equal to the steps the thread makes in this class
      * In other words: let the simulator run steps ;)
      */
-	@Override
-	public void run() {
+	 @Override
+	 public void run() {
 		while (running){
 			if (threadStep != 0){
 				simulateOneStep();
@@ -336,13 +319,13 @@ public class Simulator implements Runnable {
 				stop();
 			}
 		}
-	}
+	 }
 
     /**
      * Ignite a nuclear disaster, which kills all the animals and
      * spawns cockroaches.
      */
-	public void specials(){
+	 public void specials(){
 		Random rand = Randomizer.getRandom();
 		for(int row = 0;row<DEFAULT_DEPTH;row++){
 			for(int col = 0; col<DEFAULT_WIDTH;col++){
@@ -363,7 +346,7 @@ public class Simulator implements Runnable {
 		}
 		
 		player.playNukeSound();
-	}
+	 }
 	
 	
 }

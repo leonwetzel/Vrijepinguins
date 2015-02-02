@@ -1,11 +1,15 @@
 import java.awt.*;
+
 import javax.imageio.*;
+
 import java.awt.image.*;
 import java.applet.*;
 import java.awt.event.*;
 import java.io.*;
+
 import javax.swing.*;
 
+import java.util.HashMap;
 import java.util.LinkedHashMap;
 import java.util.Map;
 /**
@@ -34,6 +38,7 @@ public class SimulatorView extends JFrame
     private Map<Class, Color> colors;
     // A statistics object computing and storing simulation information
     private FieldStats stats;
+    private String populationDetails = "Hunter: 0 Rabbit: 0 Penguin: 0 Druids: 0 Fox: 0 ";
     
     // MenuItems
     JMenuItem about;
@@ -87,7 +92,7 @@ public class SimulatorView extends JFrame
         //make Diagrams
         lijnDiagram = new Lijndiagram();
         JPanel diagrams = new JPanel();
-        lijnDiagram.setup(this,diagrams);
+        lijnDiagram.setup(this,diagrams,populationDetails);
         //diagrams.add(lijnDiagram);
         contentPane.add(diagrams, BorderLayout.WEST);
         
@@ -193,6 +198,7 @@ public class SimulatorView extends JFrame
         stepLabel.setText(STEP_PREFIX + step);
         stats.reset();
         
+        
         fieldView.preparePaint();
 
         for(int row = 0; row < field.getDepth(); row++) {
@@ -209,8 +215,8 @@ public class SimulatorView extends JFrame
             }
         }
         stats.countFinished();
-
         population.setText(POPULATION_PREFIX + stats.getPopulationDetails(field));
+        populationDetails = stats.getPopulationDetails(field);
         fieldView.repaint();
     }
 
