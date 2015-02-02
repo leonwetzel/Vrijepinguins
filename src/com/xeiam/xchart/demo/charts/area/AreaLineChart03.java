@@ -25,11 +25,11 @@ import com.xeiam.xchart.SwingWrapper;
 import com.xeiam.xchart.demo.charts.ExampleChart;
 
 /**
- * Combination Line & Area Chart
+ * Combination Line & vrijepinguins.model.Area Chart
  * <p/>
  * Demonstrates the following:
  * <ul>
- * <li>Combination of Line and Area series
+ * <li>Combination of Line and vrijepinguins.model.Area series
  * <li>Axis Label Alignment
  * <li>Ensuring a chart axis on a tick
  */

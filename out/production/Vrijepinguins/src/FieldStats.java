@@ -1,4 +1,5 @@
-import java.awt.Color;
+import github.model.Field;
+
 import java.util.HashMap;
 
 /**

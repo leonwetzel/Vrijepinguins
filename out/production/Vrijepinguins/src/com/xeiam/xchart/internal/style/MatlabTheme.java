@@ -235,7 +235,7 @@ public class MatlabTheme implements Theme {
     return 44;
   }
 
-  // Chart Plot Area ///////////////////////////////
+  // Chart Plot github.model.Area ///////////////////////////////
 
   @Override
   public boolean isPlotGridLinesVisible() {
@@ -300,7 +300,7 @@ public class MatlabTheme implements Theme {
     return true;
   }
 
-  // Line, Scatter, Area Charts ///////////////////////////////
+  // Line, Scatter, github.model.Area Charts ///////////////////////////////
 
   @Override
   public int getMarkerSize() {

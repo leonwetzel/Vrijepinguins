@@ -100,7 +100,7 @@ public interface Theme {
 
   public int getYAxisTickMarkSpacingHint();
 
-  // Chart Plot Area ///////////////////////////////
+  // Chart Plot vrijepinguins.model.Area ///////////////////////////////
 
   public boolean isPlotGridLinesVisible();
 
@@ -124,7 +124,7 @@ public interface Theme {
 
   public boolean isBarFilled();
 
-  // Line, Scatter, Area Charts ///////////////////////////////
+  // Line, Scatter, vrijepinguins.model.Area Charts ///////////////////////////////
 
   public int getMarkerSize();
 

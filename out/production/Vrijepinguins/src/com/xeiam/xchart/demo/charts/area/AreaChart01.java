@@ -23,11 +23,11 @@ import com.xeiam.xchart.SwingWrapper;
 import com.xeiam.xchart.demo.charts.ExampleChart;
 
 /**
- * Area Chart with 3 series
+ * github.model.Area Chart with 3 series
  * <p>
  * Demonstrates the following:
  * <ul>
- * <li>Area Chart
+ * <li>github.model.Area Chart
  * <li>Place legend at Inside-NW position
  * <li>ChartBuilder
  */

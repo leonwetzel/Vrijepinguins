@@ -1,8 +1,10 @@
+import github.model.*;
+
+import java.awt.*;
 import java.util.Random;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Iterator;
-import java.awt.Color;
 import java.awt.event.*;
 
 /**
@@ -128,7 +130,7 @@ public class Simulator implements Runnable {
     public void addListeners()
     {
     	view.button.oneButton.addActionListener(new ActionListener() {
-            public void actionPerformed(ActionEvent e) { start(1); }
+            public void actionPerformed(ActionEvent e) { start(1);}
         });
     	view.button.hundredButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { start(-1); }
@@ -237,7 +239,7 @@ public class Simulator implements Runnable {
         Random rand = Randomizer.getRandom();
         field.clear();
         areas.clear();
-        //AreaLocation areaLocation = new AreaLocation(0,0);
+        //github.model.AreaLocation areaLocation = new github.model.AreaLocation(0,0);
     	//Radiation radiation = new Radiation(field,areaLocation);
     	
     	//areas.add(radiation);
@@ -249,19 +251,19 @@ public class Simulator implements Runnable {
             for(int col = 0; col < field.getWidth(); col++) {
             	Location location = new Location(row,col);
             	if(rand.nextDouble() <= FOX_CREATION_PROBABILITY) {
-                    //Location location = new Location(row, col);
+                    //github.model.Location location = new github.model.Location(row, col);
                     Fox fox = new Fox(true, field, location);
                     actors.add(fox);
                 } else if(rand.nextDouble() <= RABBIT_CREATION_PROBABILITY) {
-                    //Location location = new Location(row, col);
+                    //github.model.Location location = new github.model.Location(row, col);
                     Rabbit rabbit = new Rabbit(true, field, location);
                     actors.add(rabbit);
                 } else if(rand.nextDouble()<= PENGUIN_CREATION_PROBABILITY){
-                	//Location location = new Location(row, col);
+                	//github.model.Location location = new github.model.Location(row, col);
                 	Penguin penguin = new Penguin(true,field,location);
                 	actors.add(penguin);
                 } else if(rand.nextDouble() <= HUNTER_CREATION_PROBABILITY) {
-                	//Location location = new Location(row, col);
+                	//github.model.Location location = new github.model.Location(row, col);
                 	if(rand.nextDouble()<=0.60){
                 		Hunter hunter = new Hunter(field, location);
                 		actors.add(hunter);
@@ -273,8 +275,8 @@ public class Simulator implements Runnable {
                 }
             	
                /* else if(rand.nextDouble() <= HUNTER_CREATION_PROBABILITY) {
-                	//Location location = new Location(row, col);
-                	Cockroach cockroach = new Cockroach(false, field, location);
+                	//github.model.Location location = new github.model.Location(row, col);
+                	github.model.Cockroach cockroach = new github.model.Cockroach(false, field, location);
                 	actors.add(cockroach);
                 }*/
                 // else leave the location empty.

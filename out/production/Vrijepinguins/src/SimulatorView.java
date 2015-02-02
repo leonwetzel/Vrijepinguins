@@ -1,8 +1,9 @@
+import github.model.Area;
+import github.model.Field;
+
 import java.awt.*;
 import javax.imageio.*;
 import java.awt.image.*;
-import java.applet.*;
-import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
 
@@ -50,6 +51,9 @@ public class SimulatorView extends JFrame
     //Buttons object
     Button button;
     
+    //diagrammen
+    Lijndiagram lijnDiagram;
+    
     /**
      * Create a view of the given width and height.
      * @param height The simulation's height.
@@ -59,7 +63,7 @@ public class SimulatorView extends JFrame
     {  
     	// maak het frame en dergelijke
     	//setLocation(410, 0);
-    	button = new Button();
+    	
     	setTitle("Vossen & Konijnen, uitgevoerd door Vrijepinguins");
         stats = new FieldStats();
         colors = new LinkedHashMap<Class, Color>();
@@ -73,6 +77,7 @@ public class SimulatorView extends JFrame
         makeMenuBar(this);
 
         // maak de buttons
+        button = new Button();
         JPanel lbuttons = new JPanel();
         button.makeleftSidebarButtons(this,lbuttons);
         JPanel buttonBox = new JPanel();
@@ -80,6 +85,12 @@ public class SimulatorView extends JFrame
         buttonBox.add(lbuttons);
         //maak invoervelden voor de verschillende dieren
         
+        //make Diagrams
+        lijnDiagram = new Lijndiagram();
+        JPanel diagrams = new JPanel();
+        lijnDiagram.setup(this,diagrams);
+        //diagrams.add(lijnDiagram);
+        contentPane.add(diagrams, BorderLayout.WEST);
         
         
         fieldView = new FieldView(height, width);
@@ -143,7 +154,7 @@ public class SimulatorView extends JFrame
         	switchView = new JMenuItem("Switch View");
         	menu1.add(switchView);
         JMenu menu2 = new JMenu("Edit");
-        	userInput= new JMenuItem("Animal Input");
+        	userInput= new JMenuItem("github.model.Animal Input");
         	menu2.add(userInput);
         JMenu menu3 = new JMenu("Help");
         	about = new JMenuItem("About");
