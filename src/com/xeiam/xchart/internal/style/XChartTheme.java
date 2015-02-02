@@ -235,7 +235,7 @@ public class XChartTheme implements Theme {
     return 44;
   }
 
-  // Chart Plot Area ///////////////////////////////
+  // Chart Plot vrijepinguins.model.Area ///////////////////////////////
 
   @Override
   public boolean isPlotGridLinesVisible() {
@@ -299,7 +299,7 @@ public class XChartTheme implements Theme {
     return true;
   }
 
-  // Line, Scatter, Area Charts ///////////////////////////////
+  // Line, Scatter, vrijepinguins.model.Area Charts ///////////////////////////////
 
   @Override
   public int getMarkerSize() {

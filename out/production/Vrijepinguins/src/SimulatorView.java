@@ -1,8 +1,9 @@
+import github.model.Area;
+import github.model.Field;
+
 import java.awt.*;
 import javax.imageio.*;
 import java.awt.image.*;
-import java.applet.*;
-import java.awt.event.*;
 import java.io.*;
 import javax.swing.*;
 
@@ -153,7 +154,7 @@ public class SimulatorView extends JFrame
         	switchView = new JMenuItem("Switch View");
         	menu1.add(switchView);
         JMenu menu2 = new JMenu("Edit");
-        	userInput= new JMenuItem("Animal Input");
+        	userInput= new JMenuItem("github.model.Animal Input");
         	menu2.add(userInput);
         JMenu menu3 = new JMenu("Help");
         	about = new JMenuItem("About");

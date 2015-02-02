@@ -213,7 +213,7 @@ public class PlotContentLineChart extends PlotContent {
             path.lineTo(xOffset, yOffset);
           }
           if (xOffset < previousX) {
-            throw new RuntimeException("X-Data must be in ascending order for Area Charts!!!");
+            throw new RuntimeException("X-Data must be in ascending order for vrijepinguins.model.Area Charts!!!");
           }
         }
 

@@ -41,7 +41,7 @@ public class Button{
         JLabel mAge2 = new JLabel("Max Leeftijd");
         JLabel aNak2 = new JLabel("Aantal nakomelingen");
         JLabel vLef2 = new JLabel("Voortplantingsleeftijd");
-        JLabel animalLabel2 = new JLabel("Rabbit Eigenschappen:");
+        JLabel animalLabel2 = new JLabel("github.model.Rabbit Eigenschappen:");
         
         mAgeField2 = new JTextField();
         aNakField2 = new JTextField();
@@ -70,7 +70,7 @@ public class Button{
         JLabel mAge3 = new JLabel("Max Leeftijd");
         JLabel aNak3 = new JLabel("Aantal nakomelingen");
         JLabel vLef3 = new JLabel("Voortplantingsleeftijd");
-        JLabel animalLabel3 = new JLabel("Penguin Eigenschappen:");
+        JLabel animalLabel3 = new JLabel("github.model.Penguin Eigenschappen:");
         
         mAgeField3 = new JTextField();
         aNakField3 = new JTextField();
@@ -98,7 +98,7 @@ public class Button{
          JLabel mAge = new JLabel("Max Leeftijd");
          JLabel aNak = new JLabel("Aantal nakomelingen");
          JLabel vLef = new JLabel("Voortplantingsleeftijd");
-         JLabel animalLabel = new JLabel("Fox Eigenschappen:");
+         JLabel animalLabel = new JLabel("github.model.Fox Eigenschappen:");
          
          mAgeField = new JTextField();
          aNakField = new JTextField();

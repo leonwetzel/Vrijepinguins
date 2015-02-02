@@ -45,8 +45,8 @@ public class Lijndiagram implements ExampleChart {
     
     public static final String KONIJNEN 	= "Konijnen";
     public static final String VOSSEN 		= "Vossen";
-    public static final String PENGUIN 		= "Penguin";
-    public static final String COCKROACH 	= "Cockroach";
+    public static final String PENGUIN 		= "github.model.Penguin";
+    public static final String COCKROACH 	= "github.model.Cockroach";
     // private JPanel panel;
 
     public Lijndiagram() {

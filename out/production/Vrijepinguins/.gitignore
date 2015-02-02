@@ -1,24 +1,70 @@
-/Actor.class
-/Animal.class
-/Area.class
-/AreaLocation.class
-/Cockroach.class
+# Windows image file caches
+Thumbs.db
+ehthumbs.db
+
+# Folder config file
+Desktop.ini
+
+# Recycle Bin used on file shares
+$RECYCLE.BIN/
+
+# Windows Installer files
+*.cab
+*.msi
+*.msm
+*.msp
+
+# Windows shortcuts
+*.lnk
+
+# =========================
+# Operating System Files
+# =========================
+
+# OSX
+# =========================
+
+.DS_Store
+.AppleDouble
+.LSOverride
+
+# Thumbnails
+._*
+
+# Files that might appear on external disk
+.Spotlight-V100
+.Trashes
+
+# Directories potentially created on remote AFP share
+.AppleDB
+.AppleDesktop
+Network Trash Folder
+Temporary Items
+.apdisk
+/github.model.Actor.class
+/github.model.Animal.class
+/github.model.Area.class
+/github.model.AreaLocation.class
+/CirkelDeel.class
+/CirkelDiagram.class
+/github.model.Cockroach.class
 /Counter.class
-/Druids.class
-/Earth.class
-/Field.class
+/github.model.Druids.class
+/github.model.Earth.class
+/github.model.Field.class
 /FieldStats.class
-/Fox.class
+/github.model.Fox.class
 /Grass.class
-/Ground.class
+/github.model.Ground.class
 /HolyLand.class
-/Hunter.class
-/Location.class
+/github.model.Hunter.class
+/github.model.Location.class
 /Main.class
 /MusicPlayer.class
 /NewGroundException.class
-/Penguin.class
-/Rabbit.class
+/github.model.Penguin.class
+/PieChartSample.class
+/github.model.Rabbit.class
 /Radiation.class
 /Randomizer.class
 /Simulator$1.class
@@ -27,14 +73,12 @@
 /Simulator$4.class
 /Simulator$5.class
 /Simulator$6.class
-/Simulator$7.class
 /Simulator.class
+/SimulatorTest.class
 /SimulatorView$FieldView.class
 /SimulatorView.class
-/MusicPlayer$1.class
-/Simulator$8.class
-/Button.class
-/Lijndiagram$1.class
-/Lijndiagram$2.class
-/Lijndiagram.class
-/Staafdiagram.class
+
+.classpath
+.project
+/Simulator$7.class
+/bin/
