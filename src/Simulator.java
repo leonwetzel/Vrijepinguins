@@ -148,6 +148,9 @@ public class Simulator implements Runnable {
     	view.about.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { view.about(); }
     	});
+    	view.switchView.addActionListener(new ActionListener(){
+    		public void actionPerformed(ActionEvent e) { view.about(); }
+    	});
     }
     
     /**
@@ -339,15 +342,18 @@ public class Simulator implements Runnable {
 		Random rand = Randomizer.getRandom();
 		for(int row = 0;row<DEFAULT_DEPTH;row++){
 			for(int col = 0; col<DEFAULT_WIDTH;col++){
-				if(rand.nextDouble()<=0.10){
-					Location location = new Location(row, col);
-                    Cockroach cockroach = new Cockroach(true, field, location);
-                    actors.add(cockroach);
+				if(field.getObjectAt(row, col)==null){
+					if(rand.nextDouble()<=0.10){
+						Location location = new Location(row, col);
+						Cockroach cockroach = new Cockroach(true, field, location);
+	                	actors.add(cockroach);
+					}
 				}
-				AreaLocation areaLocation = new AreaLocation(row,col);
-            	Earth earth = new Earth(field,areaLocation,50);
-            	areas.add(earth);
-            	
+				try{
+					AreaLocation areaLocation = new AreaLocation(row,col);
+	            	Earth earth = new Earth(field,areaLocation,50);
+	            	areas.add(earth);
+				}catch(Exception e){}
             	
 			}
 		}

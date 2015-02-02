@@ -38,6 +38,7 @@ public class SimulatorView extends JFrame
     // MenuItems
     JMenuItem about;
     JMenuItem userInput;
+    JMenuItem switchView;
     
     //JFrames
     JFrame aInput;
@@ -137,7 +138,9 @@ public class SimulatorView extends JFrame
     public void makeMenuBar(JFrame frame)
     {	
         JMenuBar mbar = new JMenuBar();
-        JMenu menu1 = new JMenu("Menu 1");
+        JMenu menu1 = new JMenu("File");
+        	switchView = new JMenuItem("Switch View");
+        	menu1.add(switchView);
         JMenu menu2 = new JMenu("Edit");
         	userInput= new JMenuItem("Animal Input");
         	menu2.add(userInput);
