@@ -127,27 +127,27 @@ public class Button{
         final int SHORTCUT_MASK = Toolkit.getDefaultToolkit().getMenuShortcutKeyMask();
 
         oneButton = new JButton("One Step");
-        oneButton.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+        oneButton.getInputMap(javax.swing.JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).
                 put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_SPACE,0), "Space_pressed");
         buttons.add(oneButton);
 
         hundredButton = new JButton("Play");
-        hundredButton.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+        hundredButton.getInputMap(javax.swing.JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).
                 put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_H,0), "H_pressed");
         buttons.add(hundredButton);
 
         resetButton = new JButton("Reset");
-        resetButton.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
-                put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R,0), "R_pressed");
+        resetButton.getInputMap(javax.swing.JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).
+                put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_R, 0), "R_pressed");
         buttons.add(resetButton);
 
         stopButton = new JButton("Pause");
-        stopButton.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+        stopButton.getInputMap(javax.swing.JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).
                 put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_P,0), "P_pressed");
         buttons.add(stopButton);
         
         special = new JButton("Special");
-        special.getInputMap(javax.swing.JComponent.WHEN_IN_FOCUSED_WINDOW).
+        special.getInputMap(javax.swing.JComponent.WHEN_ANCESTOR_OF_FOCUSED_COMPONENT).
                 put(javax.swing.KeyStroke.getKeyStroke(java.awt.event.KeyEvent.VK_ENTER,0), "Enter_pressed");
         buttons.add(special);
         
