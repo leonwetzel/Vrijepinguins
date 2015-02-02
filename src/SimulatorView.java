@@ -89,6 +89,7 @@ public class SimulatorView extends JFrame
         mcontent.add(population, BorderLayout.SOUTH);
         
         
+        
         contentPane.add(lbuttons, BorderLayout.WEST);
         contentPane.add(mcontent,BorderLayout.CENTER);
         //JSplitPane container = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, lbuttons, mcontent);
@@ -420,22 +421,10 @@ public class SimulatorView extends JFrame
 	public void about() {
 		JFrame frameAbout = new JFrame("About");
     	JPanel container = new JPanel();
-    	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+    	container.setLayout(new BorderLayout());
     	String filePath = "extraFiles//images//background.jpg";
     	setImage(filePath,container);
-    	/*
-    	File file = new File(filePath);
-    	BufferedImage images = null;
-    	try{
-    		images = ImageIO.read(file);
-    	}catch(Exception e){
-    		System.out.println("Geen image, voer een image in bij de map extraFiles/Images genaamd background.jpg");
-    	}
-    	if(images!=null){
-    		JLabel label = new JLabel(new ImageIcon(images));
-    		container.add(label);
-    	}*/
-		
+    	
     	JPanel infoPanel = new JPanel();
     	infoPanel.setBackground(Color.WHITE);
     	JTextArea infoText = new JTextArea(
@@ -449,6 +438,8 @@ public class SimulatorView extends JFrame
     	infoPanel.add(infoText);
 		frameAbout.add(infoPanel,BorderLayout.NORTH);
         frameAbout.add(container,BorderLayout.SOUTH);
+        container.setBackground(Color.WHITE);
+        infoText.setBackground(Color.WHITE);
         //frameAbout.setSize(width 600);
         frameAbout.pack();
         frameAbout.setResizable(false);
