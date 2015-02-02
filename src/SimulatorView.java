@@ -22,9 +22,7 @@ public class SimulatorView extends JFrame
 {
     // Colors used for empty locations.
     private static final Color EMPTY_COLOR = Color.WHITE; //new Color(127,51,0);
-    
 
-    
     // Color used for objects that have no defined color.
     private static final Color UNKNOWN_COLOR = Color.gray;
     
@@ -61,12 +59,15 @@ public class SimulatorView extends JFrame
     public SimulatorView(int height, int width)
     {  
     	// maak het frame en dergelijke
-    	setLocation(410, 0);
+    	//setLocation(410, 0);
     	setTitle("Vossen & Konijnen, uitgevoerd door Vrijepinguins");
         stats = new FieldStats();
         colors = new LinkedHashMap<Class, Color>();
         stepLabel = new JLabel(STEP_PREFIX, JLabel.CENTER);
         population = new JLabel(POPULATION_PREFIX, JLabel.CENTER);
+        
+        Container contentPane = getContentPane();  //mich
+        contentPane.setLayout(new BorderLayout());
         
         // maak de menubar
         makeMenuBar(this);
@@ -78,16 +79,22 @@ public class SimulatorView extends JFrame
         //maak invoervelden voor de verschillende dieren
         
         
+        
         fieldView = new FieldView(height, width);
         JPanel mcontent = new JPanel();
-        mcontent.setPreferredSize(new Dimension(800, 550));
+        mcontent.setLayout(new BorderLayout());
+        mcontent.setPreferredSize(new Dimension(750, 550));
         mcontent.add(stepLabel, BorderLayout.NORTH);
         mcontent.add(fieldView, BorderLayout.CENTER);
         mcontent.add(population, BorderLayout.SOUTH);
-        JSplitPane container = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, lbuttons, mcontent);
-        container.setEnabled(false);
-        getContentPane().add(container);
-        setResizable(true);
+        
+        
+        contentPane.add(lbuttons, BorderLayout.WEST);
+        contentPane.add(mcontent,BorderLayout.CENTER);
+        //JSplitPane container = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, lbuttons, mcontent);
+        //container.setEnabled(false);
+        //getContentPane().add(container);
+        //setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
@@ -395,11 +402,8 @@ public class SimulatorView extends JFrame
         }
     }
 
-	public void about() {
-		JFrame frameAbout = new JFrame("About");
-    	JPanel container = new JPanel();
-    	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-    	String filePath = "extraFiles//images//background.jpg";
+    private void setImage(String filePath,JPanel container)
+    {
     	File file = new File(filePath);
     	BufferedImage images = null;
     	try{
@@ -411,6 +415,26 @@ public class SimulatorView extends JFrame
     		JLabel label = new JLabel(new ImageIcon(images));
     		container.add(label);
     	}
+    }
+    
+	public void about() {
+		JFrame frameAbout = new JFrame("About");
+    	JPanel container = new JPanel();
+    	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+    	String filePath = "extraFiles//images//background.jpg";
+    	setImage(filePath,container);
+    	/*
+    	File file = new File(filePath);
+    	BufferedImage images = null;
+    	try{
+    		images = ImageIO.read(file);
+    	}catch(Exception e){
+    		System.out.println("Geen image, voer een image in bij de map extraFiles/Images genaamd background.jpg");
+    	}
+    	if(images!=null){
+    		JLabel label = new JLabel(new ImageIcon(images));
+    		container.add(label);
+    	}*/
 		
     	JPanel infoPanel = new JPanel();
     	infoPanel.setBackground(Color.WHITE);
