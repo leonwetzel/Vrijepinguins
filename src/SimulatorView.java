@@ -73,9 +73,11 @@ public class SimulatorView extends JFrame
         makeMenuBar(this);
 
         // maak de buttons
-        JToolBar lbuttons = new JToolBar(JToolBar.VERTICAL);
-        button.makeleftSidebarButtons(this, lbuttons);
-        
+        JPanel lbuttons = new JPanel();
+        button.makeleftSidebarButtons(this,lbuttons);
+        JPanel buttonBox = new JPanel();
+        buttonBox.setLayout(new GridLayout());
+        buttonBox.add(lbuttons);
         //maak invoervelden voor de verschillende dieren
         
         
@@ -89,7 +91,7 @@ public class SimulatorView extends JFrame
         mcontent.add(population, BorderLayout.SOUTH);
         
         
-        contentPane.add(lbuttons, BorderLayout.WEST);
+        contentPane.add(buttonBox, BorderLayout.NORTH);
         contentPane.add(mcontent,BorderLayout.CENTER);
         //JSplitPane container = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, lbuttons, mcontent);
         //container.setEnabled(false);

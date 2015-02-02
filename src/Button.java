@@ -129,11 +129,11 @@ public class Button{
      * Method to create the left sidebar
      * @param frame
      */
-    public void makeleftSidebarButtons(JFrame frame, JToolBar buttons)
+    public void makeleftSidebarButtons(JFrame frame, JPanel buttons)
     {  	
-        oneButton = new JButton("Step 1");
+        oneButton = new JButton("One Step");
         
-        hundredButton = new JButton("Step 4000");
+        hundredButton = new JButton("Play");
         
         resetButton = new JButton("Reset");
         
