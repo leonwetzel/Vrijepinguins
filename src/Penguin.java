@@ -3,37 +3,37 @@ import java.util.Iterator;
 import java.util.Random;
 
 /**
- * A simple model of a fox.
- * Foxes age, move, eat rabbits, and die.
+ * A simple model of a penguin.
+ * Penguins age, move, eat rabbits, and die.
  * 
- * @author David J. Barnes and Michael Kölling
- * @version 2011.07.31
+ * @author Michaël van der Veen
+ * @version 2015.2.2
  */
 public class Penguin extends Animal
 {
     // Characteristics shared by all penguins (class variables).
     
-    // The age at which a fox can start to breed.
+    // The age at which a penguin can start to breed.
     private static final int BREEDING_AGE = 7;
-    // The age to which a fox can live.
+    // The age to which a penguin can live.
     private static final int MAX_AGE = 26;
-    // The likelihood of a fox breeding.
+    // The likelihood of a penguin breeding.
     private static final double BREEDING_PROBABILITY = 0.06;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 2;
     // The food value of a single rabbit. In effect, this is the
-    // number of steps a fox can go before it has to eat again.
+    // number of steps a penguin can go before it has to eat again.
     private static final int RABBIT_FOOD_VALUE = 7;
-    // The food value of a single fox.  In effect, this is the 
+    // The food value of a single penguin.  In effect, this is the
     // number of steps a penguin can go before it has to eat again.
     private static final int FOX_FOOD_VALUE = 1;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
     
     // Individual characteristics (instance fields).
-    // The fox's age.
+    // The penguin's age.
     private int age;
-    // The fox's food level, which is increased by eating rabbits.
+    // The penguin's food level, which is increased by eating rabbits.
     private int foodLevel;
 
     /**
@@ -61,8 +61,7 @@ public class Penguin extends Animal
      * This is what the penguin does most of the time: it hunts for
      * rabbits and foxes. In the process, it might breed, die of hunger,
      * or die of old age.
-     * @param field The field currently occupied.
-     * @param newFoxes A list to return newly born foxes.
+     * @param newPinguins A list to return newly born foxes.
      */
     public void act(List<Actor> newPinguins)
     {
@@ -89,7 +88,7 @@ public class Penguin extends Animal
     }
 
     /**
-     * Increase the age. This could result in the Penguins death.
+     * Increase the age. This could result in the Penguin's death.
      */
     private void incrementAge()
     {
@@ -100,7 +99,7 @@ public class Penguin extends Animal
     }
     
     /**
-     * Make this penguin more hungry. This could result in the penguins death.
+     * Make this penguin more hungry. This could result in the penguin's death.
      */
     private void incrementHunger()
     {
@@ -186,7 +185,7 @@ public class Penguin extends Animal
     }
 
     /**
-     * A fox can breed if it has reached the breeding age.
+     * A penguin can breed if it has reached the breeding age.
      */
     private boolean canBreed()
     {

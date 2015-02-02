@@ -4,43 +4,43 @@ import java.util.Random;
 
 
 /**
- * A simple model of a rabbit.
- * Rabbits age, move, breed, and die.
+ * A simple model of a cockroach.
+ * Cockroaches age, move, breed, and die.
  * 
- * @author David J. Barnes and Michael Kölling
- * @version 2011.07.31
+ * @author Michaël van der Veen
+ * @version 2015.2.2
  */
 public class Cockroach extends Animal
 {
-    // Characteristics shared by all rabbits (class variables).
+    // Characteristics shared by all cockroaches (class variables).
 
-    // The age at which a rabbit can start to breed.
+    // The age at which a cockroach can start to breed.
     private static final int BREEDING_AGE = 7;
-    // The age to which a rabbit can live.
+    // The age to which a cockroach can live.
     private static final int MAX_AGE = 30;
-    // The likelihood of a rabbit breeding.
+    // The likelihood of a cockroach breeding.
     private static final double BREEDING_PROBABILITY = 0.04;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 2;
     // A shared random number generator to control breeding.
     private static final Random rand = Randomizer.getRandom();
-    // 
+    // The value of a grass object
     private static final int GRASS_FOOD_VALUE = 6;
-    
+    // An area
     private Area newArea;
-    //
+    // Food level for a cockroach
     private int foodLevel;
     
     // Individual characteristics (instance fields).
     
-    // The rabbit's age.
+    // The cockroach's age.
     private int age;
 
     /**
-     * Create a new rabbit. A rabbit may be created with age
+     * Create a new cockroach. A cockroach may be created with age
      * zero (a new born) or with a random age.
      * 
-     * @param randomAge If true, the rabbit will have a random age.
+     * @param randomAge If true, the cockroach will have a random age.
      * @param field The field currently occupied.
      * @param location The location within the field.
      */
@@ -61,7 +61,7 @@ public class Cockroach extends Animal
     /**
      * This is what the rabbit does most of the time - it runs 
      * around. Sometimes it will breed or die of old age.
-     * @param newRabbits A list to return newly born rabbits.
+     * @param newCockroach A list to return newly born rabbits.
      */
     public void act(List<Actor> newCockroach)
     {
@@ -87,7 +87,7 @@ public class Cockroach extends Animal
 
     /**
      * Increase the age.
-     * This could result in the rabbit's death.
+     * This could result in the cockroach's death.
      */
     private void incrementAge()
     {
@@ -99,13 +99,13 @@ public class Cockroach extends Animal
     
     
     /**
-     * Check whether or not this rabbit is to give birth at this step.
+     * Check whether or not this cockroach is to give birth at this step.
      * New births will be made into free adjacent locations.
-     * @param newRabbits A list to return newly born rabbits.
+     * @param newCockroach A list to return newly born rabbits.
      */
     private void giveBirth(List<Actor> newCockroach)
     {
-        // New rabbits are born into adjacent locations.
+        // New cockroachs are born into adjacent locations.
         // Get a list of adjacent free locations.
         Field field = getField();
         List<Location> free = field.getFreeAdjacentLocations(getLocation());
@@ -116,7 +116,11 @@ public class Cockroach extends Animal
             newCockroach.add(young);
         }
     }
-        
+
+    /**
+     * Method to let a cockroach find food.
+     * Cockroaches ruin the area by decreasing the area level.
+     */
     public void findFood()
     {
     	Field field = getField();
@@ -146,14 +150,18 @@ public class Cockroach extends Animal
     }
 
     /**
-     * A rabbit can breed if it has reached the breeding age.
-     * @return true if the rabbit can breed, false otherwise.
+     * A cockroach can breed if it has reached the breeding age.
+     * @return true if the cockroach can breed, false otherwise.
      */
     private boolean canBreed()
     {
         return age >= BREEDING_AGE&&(foodLevel==1);
     }
-    
+
+    /**
+     * Generate a new area
+     * @return an Area
+     */
     public Area newArea()
     {
     	if(newArea!=null)

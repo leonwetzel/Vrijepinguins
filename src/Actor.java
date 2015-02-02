@@ -8,12 +8,27 @@ import java.util.List;
  *
  */
 public interface Actor {
-	// general method act for all actors in the simulator
+    /**
+     * general method act for all actors in the simulator
+     */
 	public void act(List<Actor> newActors);
-	// return if the actor is alive
+
+
+    /**
+     * return if the actor is alive
+     * @return true or false
+     */
 	public boolean isAlive();
-	// get a location
+
+    /**
+     * get a location
+     * @return location
+     */
 	public Location getLocation();
-	// get a field
+
+    /**
+     * get a field
+     * @return field
+     */
 	public Field getField();
 }

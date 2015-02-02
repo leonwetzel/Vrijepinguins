@@ -3,13 +3,13 @@ import java.util.List;
 
 /**
  * 
- * Public class Hunter for Vossen & Konijnen
- * This hunter is a human, therefore he should not extend the superclass Animal.
+ * Public class Druids for Vossen & Konijnen
+ * This druid is a human, therefore he should not extend the superclass Animal.
  *
- * Hunters can't breed, nor can they die. Their only purpose is to kill all that
+ * Druids can't breed, nor can they die. Their only purpose is to kill all that
  * stands in their way, except other hunters.
  * 
- * @author Michaël van der Veen
+ * @author Michaï¿½l van der Veen
  */
 public class Druids implements Actor
 {
@@ -21,7 +21,7 @@ public class Druids implements Actor
 	private int spells;
 
 	/**
-	 * Create a hunter
+	 * Create a druid
 	 * @param field
 	 * @param location
 	 */
@@ -33,8 +33,8 @@ public class Druids implements Actor
     }	
 	
     /**
-     * Way of behavior for a hunter.
-     * @param newHunters
+     * Way of behavior for a druid.
+     * @param druids
      */
     public void act(List<Actor> druids)
     {
@@ -60,8 +60,11 @@ public class Druids implements Actor
             walk();
         }
     }
-    
-    
+
+    /**
+     * This method lets a druid move to another area.
+     * This decreases the area level.
+     */
 	public void walk()
     {
     	Area area = getField().getSameLocation(getLocation());
@@ -94,8 +97,8 @@ public class Druids implements Actor
     }
     
     /**
-     * Since hunters cannot die, the boolean should be always true, right?
-     * @return true
+     *
+     * @return if a druid is alive.
      */
     public boolean isAlive()
     {
@@ -103,8 +106,8 @@ public class Druids implements Actor
     }
     
     /**
-     * Return the hunter's field.
-     * @return The hunter's field.
+     * Return the druid's field.
+     * @return The druid's field.
      */
     public Field getField()
     {
@@ -112,8 +115,8 @@ public class Druids implements Actor
     }
     
     /**
-     * Return the hunter's location.
-     * @return The hunter's location.
+     * Return the druid's location.
+     * @return The druid's location.
      */
     public Location getLocation()
     {
@@ -121,8 +124,8 @@ public class Druids implements Actor
     }
     
     /**
-     * Place the hunter at the new location in the given field.
-     * @param newLocation The hunter's new location.
+     * Place the druid at the new location in the given field.
+     * @param newLocation The druid's new location.
      */
     public void setLocation(Location newLocation)
     {
@@ -132,7 +135,11 @@ public class Druids implements Actor
         location = newLocation;
         field.place(this, newLocation);
     }
-    
+
+    /**
+     * A druid can cast spells. A spell can spawn an animal.
+     * @param actors
+     */
     public void castSpells(List<Actor>actors)
     {
     	if(manaPool>100){
@@ -151,7 +158,11 @@ public class Druids implements Actor
 	    	manaPool = 0;
     	}
     }
-    
+
+    /**
+     * Spawn a rabbit
+     * @param newBunny
+     */
     private void castBunny(List<Actor>newBunny){
     	List<Location> free = field.getFreeAdjacentLocations(getLocation());
     	Location loc = free.remove(0);
@@ -159,6 +170,11 @@ public class Druids implements Actor
     	newBunny.add(young);
     	System.out.println("ABBRA CABUNNA!");
     }
+
+    /**
+     * Spawn a fox
+     * @param newFox
+     */
     private void castFox(List<Actor>newFox){
     	List<Location> free = field.getFreeAdjacentLocations(getLocation());
     	Location loc = free.remove(0);
@@ -166,6 +182,11 @@ public class Druids implements Actor
     	newFox.add(young);
     	System.out.println("WHA DU DA FOX SAIWE!");
     }
+
+    /**
+     * Spawn a pinguin
+     * @param newPenguin
+     */
     private void castPenguin(List<Actor>newPenguin){
     	List<Location> free = field.getFreeAdjacentLocations(getLocation());
     	Location loc = free.remove(0);

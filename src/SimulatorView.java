@@ -101,7 +101,10 @@ public class SimulatorView extends JFrame
         pack();
         setVisible(true);
     }
-    
+
+    /**
+     * Creates an input frame.
+     */
     public void inputFrame(){
     	JFrame frame = new JFrame("Diereigenschappen");
     	container = new JPanel();
@@ -127,11 +130,7 @@ public class SimulatorView extends JFrame
     {
         colors.put(animalClass, color);
     }
-        
-    /**
-     * Method to create the left sidebar
-     * @param frame
-     */
+
     
     /**
      * Method to create the menubar
@@ -302,6 +301,11 @@ public class SimulatorView extends JFrame
         }
     }
 
+    /**
+     * Setter for an image
+     * @param filePath
+     * @param container
+     */
     private void setImage(String filePath,JPanel container)
     {
     	File file = new File(filePath);
@@ -316,7 +320,10 @@ public class SimulatorView extends JFrame
     		container.add(label);
     	}
     }
-    
+
+    /**
+     * Menu item which displays the 'about' information.
+     */
 	public void about() {
 		JFrame frameAbout = new JFrame("About");
     	JPanel container = new JPanel();
@@ -343,8 +350,8 @@ public class SimulatorView extends JFrame
     			+"Dit werk is met uiterste zorg en moeite in elkaar gezet.\n"
 				+"Steel dit werk dus niet. Dat maakt ons heel verdrietig\n"
     			+"\nDit programma is gepubliceerd door Vrijepinguins in opdracht van Dierenpark Groningen\n"
-    			+"\nAuteurs: Paul Koning, Jesse Stal, Michaël van der Veen en Leon Wetzel\n"
-    			+"\nCopyright Vrijepinguins © 2015 "
+    			+"\nAuteurs: Paul Koning, Jesse Stal, Michaï¿½l van der Veen en Leon Wetzel\n"
+    			+"\nCopyright Vrijepinguins ï¿½ 2015 "
     					);
     	infoPanel.add(infoText);
 		frameAbout.add(infoPanel,BorderLayout.NORTH);

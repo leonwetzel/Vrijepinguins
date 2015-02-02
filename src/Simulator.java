@@ -13,7 +13,7 @@ import java.awt.event.*;
  * @version 2011.07.31
  * 
  * This class is part of the Vossen & Konijnen Project by Jesse Stal, Paul Koning,
- * Michaël van der Veen and Leon Wetzel. Don't steal this work. 
+ * MichaÃ«l van der Veen and Leon Wetzel. Don't steal this work.
  * 
  * Questions regarding code or development process? Please send an e-mail to l.f.a.wetzel@st.hanze.nl.
  */
@@ -337,7 +337,11 @@ public class Simulator implements Runnable {
 			}
 		}
 	}
-	
+
+    /**
+     * Ignite a nuclear disaster, which kills all the animals and
+     * spawns cockroaches.
+     */
 	public void specials(){
 		Random rand = Randomizer.getRandom();
 		for(int row = 0;row<DEFAULT_DEPTH;row++){

@@ -13,7 +13,7 @@ import java.awt.event.*;
  * @version 2011.07.31
  * 
  * This class is part of the Vossen & Konijnen Project by Jesse Stal, Paul Koning,
- * Michaël van der Veen and Leon Wetzel. Don't steal this work. 
+ * MichaÃ«l van der Veen and Leon Wetzel. Don't steal this work.
  * 
  * Questions regarding code or development process? Please send an e-mail to l.f.a.wetzel@st.hanze.nl.
  */
@@ -127,25 +127,28 @@ public class Simulator implements Runnable {
      */
     public void addListeners()
     {
-    	view.oneButton.addActionListener(new ActionListener() {
+    	view.button.oneButton.addActionListener(new ActionListener() {
             public void actionPerformed(ActionEvent e) { start(1); }
         });
-    	view.hundredButton.addActionListener(new ActionListener() {
+    	view.button.hundredButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { start(-1); }
     	});
-    	view.resetButton.addActionListener(new ActionListener() {
+    	view.button.resetButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { reset(); }
     	});
-    	view.stopButton.addActionListener(new ActionListener() {
+    	view.button.stopButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { stop(); }
     	});
     	view.userInput.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { view.inputFrame(); }
     	});
-    	view.special.addActionListener(new ActionListener() {
+    	view.button.special.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { specials(); }
     	});
     	view.about.addActionListener(new ActionListener() {
+    		public void actionPerformed(ActionEvent e) { view.about(); }
+    	});
+    	view.switchView.addActionListener(new ActionListener(){
     		public void actionPerformed(ActionEvent e) { view.about(); }
     	});
     }
@@ -334,20 +337,27 @@ public class Simulator implements Runnable {
 			}
 		}
 	}
-	
+
+    /**
+     * Ignite a nuclear disaster, which kills all the animals and
+     * spawns cockroaches.
+     */
 	public void specials(){
 		Random rand = Randomizer.getRandom();
 		for(int row = 0;row<DEFAULT_DEPTH;row++){
 			for(int col = 0; col<DEFAULT_WIDTH;col++){
-				if(rand.nextDouble()<=0.10){
-					Location location = new Location(row, col);
-                    Cockroach cockroach = new Cockroach(true, field, location);
-                    actors.add(cockroach);
+				if(field.getObjectAt(row, col)==null){
+					if(rand.nextDouble()<=0.10){
+						Location location = new Location(row, col);
+						Cockroach cockroach = new Cockroach(true, field, location);
+	                	actors.add(cockroach);
+					}
 				}
-				AreaLocation areaLocation = new AreaLocation(row,col);
-            	Earth earth = new Earth(field,areaLocation,50);
-            	areas.add(earth);
-            	
+				try{
+					AreaLocation areaLocation = new AreaLocation(row,col);
+	            	Earth earth = new Earth(field,areaLocation,50);
+	            	areas.add(earth);
+				}catch(Exception e){}
             	
 			}
 		}

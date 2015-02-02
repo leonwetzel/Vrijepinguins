@@ -261,12 +261,23 @@ public class Field
     {
         return width;
     }
-    
+
+    /**
+     * Returns the location which is equal to the location
+     * @param location
+     * @return
+     */
     public Area getSameLocation(Location location){
     	
     	return area[location.getRow()][ location.getCol()];
     }
-    
+
+
+    /**
+     * Returns the location which is equal to the arealocation
+     * @param areaLocation
+     * @return
+     */
     public Object getSameAreaLocation(AreaLocation areaLocation){
     	
     	return field[areaLocation.getRow()][ areaLocation.getCol()];

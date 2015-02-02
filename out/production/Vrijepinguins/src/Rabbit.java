@@ -133,7 +133,10 @@ public class Rabbit extends Animal
             newRabbits.add(young);
         }
     }
-        
+
+    /**
+     * Let a rabbit search for grass.
+     */
     private void findFood()
     {
     	Field field = getField();

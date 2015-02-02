@@ -22,9 +22,7 @@ public class SimulatorView extends JFrame
 {
     // Colors used for empty locations.
     private static final Color EMPTY_COLOR = Color.WHITE; //new Color(127,51,0);
-    
 
-    
     // Color used for objects that have no defined color.
     private static final Color UNKNOWN_COLOR = Color.gray;
     
@@ -37,21 +35,20 @@ public class SimulatorView extends JFrame
     // A statistics object computing and storing simulation information
     private FieldStats stats;
     
-    // buttons
-    JButton hundredButton;
-    JButton oneButton;
-    JButton resetButton;
-    JButton stopButton;
-    JButton special;
     // MenuItems
     JMenuItem about;
     JMenuItem userInput;
+    JMenuItem switchView;
     
     //JFrames
     JFrame aInput;
+    JFrame aboutFrame;
+    
+    //JPanels
     JPanel container;
     
-    JFrame aboutFrame;
+    //Buttons object
+    Button button;
     
     /**
      * Create a view of the given width and height.
@@ -61,49 +58,64 @@ public class SimulatorView extends JFrame
     public SimulatorView(int height, int width)
     {  
     	// maak het frame en dergelijke
-    	setLocation(410, 0);
+    	//setLocation(410, 0);
+    	button = new Button();
     	setTitle("Vossen & Konijnen, uitgevoerd door Vrijepinguins");
         stats = new FieldStats();
         colors = new LinkedHashMap<Class, Color>();
         stepLabel = new JLabel(STEP_PREFIX, JLabel.CENTER);
         population = new JLabel(POPULATION_PREFIX, JLabel.CENTER);
         
+        Container contentPane = getContentPane();  //mich
+        contentPane.setLayout(new BorderLayout());
+        
         // maak de menubar
         makeMenuBar(this);
 
         // maak de buttons
-        JToolBar lbuttons = new JToolBar(JToolBar.VERTICAL);
-        makeleftSidebarButtons(this, lbuttons);
-        
+        JPanel lbuttons = new JPanel();
+        button.makeleftSidebarButtons(this,lbuttons);
+        JPanel buttonBox = new JPanel();
+        buttonBox.setLayout(new GridLayout());
+        buttonBox.add(lbuttons);
         //maak invoervelden voor de verschillende dieren
+        
         
         
         fieldView = new FieldView(height, width);
         JPanel mcontent = new JPanel();
-        mcontent.setPreferredSize(new Dimension(800, 550));
+        mcontent.setLayout(new BorderLayout());
+        mcontent.setPreferredSize(new Dimension(750, 550));
         mcontent.add(stepLabel, BorderLayout.NORTH);
         mcontent.add(fieldView, BorderLayout.CENTER);
         mcontent.add(population, BorderLayout.SOUTH);
-        JSplitPane container = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, lbuttons, mcontent);
-        container.setEnabled(false);
-        getContentPane().add(container);
-        setResizable(true);
+        
+        
+        contentPane.add(buttonBox, BorderLayout.NORTH);
+        contentPane.add(mcontent,BorderLayout.CENTER);
+        //JSplitPane container = new JSplitPane(JSplitPane.HORIZONTAL_SPLIT, lbuttons, mcontent);
+        //container.setEnabled(false);
+        //getContentPane().add(container);
+        //setResizable(true);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         pack();
         setVisible(true);
     }
-    
+
+    /**
+     * Creates an input frame.
+     */
     public void inputFrame(){
     	JFrame frame = new JFrame("Diereigenschappen");
     	container = new JPanel();
     	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //new grid for fox property inputs
-        foxProperties();
+        button.foxProperties();
         //new grid for rabbit property inputs
-        rabbitProperties();
+        button.rabbitProperties();
         //new grid for penguin property inputs
-        penguinProperties();
+       button.penguinProperties();
         frame.add(container);
         frame.pack();
         frame.setResizable(false);
@@ -118,115 +130,7 @@ public class SimulatorView extends JFrame
     {
         colors.put(animalClass, color);
     }
-    
-    public void rabbitProperties(){
-    	JPanel cRabbit = new JPanel();
-        cRabbit.setLayout(new BorderLayout());
-        JPanel gridLayoutPane2 = new JPanel(); 
-        GridLayout gridLayout2 = new GridLayout(3,2);
-        gridLayoutPane2.setLayout(gridLayout2);
-        
-        JLabel mAge2 = new JLabel("Max Leeftijd");
-        JLabel aNak2 = new JLabel("Aantal nakomelingen");
-        JLabel vLef2 = new JLabel("Voortplantingsleeftijd");
-        JLabel animalLabel2 = new JLabel("Rabbit Eigenschappen:");
-        
-        JTextField mAgeField2 = new JTextField();
-        JTextField aNakField2 = new JTextField();
-        JTextField vLefField2 = new JTextField();
-        
-        gridLayoutPane2.add(mAge2);
-        gridLayoutPane2.add(mAgeField2);
-        gridLayoutPane2.add(vLef2);
-        gridLayoutPane2.add(vLefField2);
-        gridLayoutPane2.add(aNak2);
-        gridLayoutPane2.add(aNakField2);
-        cRabbit.add(gridLayoutPane2, BorderLayout.CENTER);
-        cRabbit.add(animalLabel2, BorderLayout.NORTH);
-        container.add(cRabbit);
-        container.add(Box.createRigidArea(new Dimension(0,10)));
-    }
-    
-    public void penguinProperties(){
-    	JPanel cPenguin = new JPanel();
-        cPenguin.setLayout(new BorderLayout());
-        JPanel gridLayoutPane3 = new JPanel(); 
-        GridLayout gridLayout3 = new GridLayout(3,2);
-        gridLayoutPane3.setLayout(gridLayout3);
-        
-        JLabel mAge3 = new JLabel("Max Leeftijd");
-        JLabel aNak3 = new JLabel("Aantal nakomelingen");
-        JLabel vLef3 = new JLabel("Voortplantingsleeftijd");
-        JLabel animalLabel3 = new JLabel("Penguin Eigenschappen:");
-        
-        JTextField mAgeField3 = new JTextField();
-        JTextField aNakField3 = new JTextField();
-        JTextField vLefField3 = new JTextField();
-        
-        gridLayoutPane3.add(mAge3);
-        gridLayoutPane3.add(mAgeField3);
-        gridLayoutPane3.add(vLef3);
-        gridLayoutPane3.add(vLefField3);
-        gridLayoutPane3.add(aNak3);
-        gridLayoutPane3.add(aNakField3);
-        cPenguin.add(gridLayoutPane3, BorderLayout.CENTER);
-        cPenguin.add(animalLabel3, BorderLayout.NORTH);
-        container.add(cPenguin);
-        container.add(Box.createRigidArea(new Dimension(0,10)));
-    }
-    
-    public void foxProperties(){
-    	 JPanel cFox = new JPanel();
-         cFox.setLayout(new BorderLayout());
-         JPanel gridLayoutPane = new JPanel(); 
-         GridLayout gridLayout = new GridLayout(3,2);
-         gridLayoutPane.setLayout(gridLayout);
-         
-         JLabel mAge = new JLabel("Max Leeftijd");
-         JLabel aNak = new JLabel("Aantal nakomelingen");
-         JLabel vLef = new JLabel("Voortplantingsleeftijd");
-         JLabel animalLabel = new JLabel("Fox Eigenschappen:");
-         
-         JTextField mAgeField = new JTextField();
-         JTextField aNakField = new JTextField();
-         JTextField vLefField = new JTextField();
-         
-         gridLayoutPane.add(mAge);
-         gridLayoutPane.add(mAgeField);
-         gridLayoutPane.add(vLef);
-         gridLayoutPane.add(vLefField);
-         gridLayoutPane.add(aNak);
-         gridLayoutPane.add(aNakField);
-         cFox.add(gridLayoutPane, BorderLayout.CENTER);
-         cFox.add(animalLabel, BorderLayout.NORTH);
-         container.add(cFox);
-         container.add(Box.createRigidArea(new Dimension(0,10)));
-    }
-    
-    /**
-     * Method to create the left sidebar
-     * @param frame
-     */
-    public void makeleftSidebarButtons(JFrame frame, JToolBar lbuttons)
-    {  	
-        oneButton = new JButton("One Step");
-        
-        hundredButton = new JButton("Play");
-        
-        resetButton = new JButton("Reset");
-        
-        stopButton = new JButton("Pause");     
-              
-        special = new JButton("Special Red Button");
-        
-        lbuttons.add(oneButton);
-        lbuttons.add(hundredButton);  
-        lbuttons.add(resetButton);
-        lbuttons.add(stopButton);
-        //lbuttons.add(userInput);
-        lbuttons.add(special);
-        
-    }
+
     
     /**
      * Method to create the menubar
@@ -235,7 +139,9 @@ public class SimulatorView extends JFrame
     public void makeMenuBar(JFrame frame)
     {	
         JMenuBar mbar = new JMenuBar();
-        JMenu menu1 = new JMenu("Menu 1");
+        JMenu menu1 = new JMenu("File");
+        	switchView = new JMenuItem("Switch View");
+        	menu1.add(switchView);
         JMenu menu2 = new JMenu("Edit");
         	userInput= new JMenuItem("Animal Input");
         	menu2.add(userInput);
@@ -395,11 +301,13 @@ public class SimulatorView extends JFrame
         }
     }
 
-	public void about() {
-		JFrame frameAbout = new JFrame("About");
-    	JPanel container = new JPanel();
-    	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
-    	String filePath = "extraFiles//images//background.jpg";
+    /**
+     * Setter for an image
+     * @param filePath
+     * @param container
+     */
+    private void setImage(String filePath,JPanel container)
+    {
     	File file = new File(filePath);
     	BufferedImage images = null;
     	try{
@@ -411,6 +319,29 @@ public class SimulatorView extends JFrame
     		JLabel label = new JLabel(new ImageIcon(images));
     		container.add(label);
     	}
+    }
+
+    /**
+     * Menu item which displays the 'about' information.
+     */
+	public void about() {
+		JFrame frameAbout = new JFrame("About");
+    	JPanel container = new JPanel();
+    	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
+    	String filePath = "extraFiles//images//background.jpg";
+    	setImage(filePath,container);
+    	/*
+    	File file = new File(filePath);
+    	BufferedImage images = null;
+    	try{
+    		images = ImageIO.read(file);
+    	}catch(Exception e){
+    		System.out.println("Geen image, voer een image in bij de map extraFiles/Images genaamd background.jpg");
+    	}
+    	if(images!=null){
+    		JLabel label = new JLabel(new ImageIcon(images));
+    		container.add(label);
+    	}*/
 		
     	JPanel infoPanel = new JPanel();
     	infoPanel.setBackground(Color.WHITE);
@@ -419,8 +350,8 @@ public class SimulatorView extends JFrame
     			+"Dit werk is met uiterste zorg en moeite in elkaar gezet.\n"
 				+"Steel dit werk dus niet. Dat maakt ons heel verdrietig\n"
     			+"\nDit programma is gepubliceerd door Vrijepinguins in opdracht van Dierenpark Groningen\n"
-    			+"\nAuteurs: Paul Koning, Jesse Stal, Michaël van der Veen en Leon Wetzel\n"
-    			+"\nCopyright Vrijepinguins © 2015 "
+    			+"\nAuteurs: Paul Koning, Jesse Stal, Michaï¿½l van der Veen en Leon Wetzel\n"
+    			+"\nCopyright Vrijepinguins ï¿½ 2015 "
     					);
     	infoPanel.add(infoText);
 		frameAbout.add(infoPanel,BorderLayout.NORTH);
