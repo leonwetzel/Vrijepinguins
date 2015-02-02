@@ -91,7 +91,7 @@ public class MusicPlayer {
 	}
 	
 	/**
-	 * 
+	 * Get the nuke sound
 	 */
 	public void prepareNukeSound()
 	{

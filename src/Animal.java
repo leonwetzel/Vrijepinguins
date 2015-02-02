@@ -88,7 +88,11 @@ public abstract class Animal implements Actor
     {
         return field;
     }
-    
+
+
+    /**
+     * Let an aminal walk
+     */
     public void walk()
     {
     	Area area = getField().getSameLocation(getLocation());
@@ -97,6 +101,10 @@ public abstract class Animal implements Actor
     		setDead();
     	}
     }
+
+    /**
+     * Let an aminal crawl
+     */
     public void crawl()
     {
     	Area area = getField().getSameLocation(getLocation());

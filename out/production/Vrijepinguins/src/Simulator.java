@@ -131,7 +131,7 @@ public class Simulator implements Runnable {
             public void actionPerformed(ActionEvent e) { start(1); }
         });
     	view.hundredButton.addActionListener(new ActionListener() {
-    		public void actionPerformed(ActionEvent e) { start(4000); }
+    		public void actionPerformed(ActionEvent e) { start(-1); }
     	});
     	view.resetButton.addActionListener(new ActionListener() {
     		public void actionPerformed(ActionEvent e) { reset(); }
@@ -294,6 +294,8 @@ public class Simulator implements Runnable {
     	running = true;
     	new Thread(this).start();
     }
+    
+
     
     /**
      * Stop the thread

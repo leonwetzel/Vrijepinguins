@@ -2,7 +2,8 @@ import java.util.List;
 import java.awt.Color;
 
 /**
-*
+* Public interface Area.
+ *Contains method signatures for Ground and Earth
 *
 */
 

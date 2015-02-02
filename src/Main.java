@@ -1,7 +1,7 @@
 /**
  * 
  * This class is part of the Vossen & Konijnen Project by Jesse Stal, Paul Koning,
- * Michaël van der Veen and Leon Wetzel. Don't steal this work. 
+ * Michaï¿½l van der Veen and Leon Wetzel. Don't steal this work. 
  * 
  * Questions regarding code or development process? Please send an e-mail to l.f.a.wetzel@st.hanze.nl.
  */
@@ -19,7 +19,7 @@ public class Main {
 	}
 	
 	/**
-	 * set de simulator
+	 * setter for simulator
 	 * @param simulator 
 	 */
 	private void setSimulator(Simulator simulator){
@@ -27,8 +27,7 @@ public class Main {
 	}
 	
 	/**
-	 * getter voor simulator
-	 * overbodig?
+	 * Getter for simulator
 	 * @return Simulator 
 	 */
 	private Simulator getSimulator(){

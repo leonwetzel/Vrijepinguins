@@ -42,13 +42,15 @@ public class SimulatorView extends JFrame
     JButton oneButton;
     JButton resetButton;
     JButton stopButton;
-    JButton userInput;
     JButton special;
+    // MenuItems
+    JMenuItem about;
+    JMenuItem userInput;
     
     //JFrames
     JFrame aInput;
     JPanel container;
-    JMenuItem about;
+    
     JFrame aboutFrame;
     
     /**
@@ -207,23 +209,21 @@ public class SimulatorView extends JFrame
      */
     public void makeleftSidebarButtons(JFrame frame, JToolBar lbuttons)
     {  	
-        oneButton = new JButton("Step 1");
+        oneButton = new JButton("One Step");
         
-        hundredButton = new JButton("Step 4000");
+        hundredButton = new JButton("Play");
         
         resetButton = new JButton("Reset");
         
         stopButton = new JButton("Pause");     
-        
-        userInput = new JButton("Animal Input");
-        
+              
         special = new JButton("Special Red Button");
         
         lbuttons.add(oneButton);
         lbuttons.add(hundredButton);  
         lbuttons.add(resetButton);
         lbuttons.add(stopButton);
-        lbuttons.add(userInput);
+        //lbuttons.add(userInput);
         lbuttons.add(special);
         
     }
@@ -236,10 +236,12 @@ public class SimulatorView extends JFrame
     {	
         JMenuBar mbar = new JMenuBar();
         JMenu menu1 = new JMenu("Menu 1");
-        JMenu menu2 = new JMenu("Menu 2");
+        JMenu menu2 = new JMenu("Edit");
+        	userInput= new JMenuItem("Animal Input");
+        	menu2.add(userInput);
         JMenu menu3 = new JMenu("Help");
         	about = new JMenuItem("About");
-        menu3.add(about);
+        	menu3.add(about);
         mbar.add(menu1);
         mbar.add(menu2);
         mbar.add(menu3);

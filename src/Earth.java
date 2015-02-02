@@ -2,6 +2,10 @@ import java.util.List;
 import java.util.ArrayList;
 import java.awt.*;
 
+/**
+ * Public class Ground.
+ * This class implements from abstract class Ground.
+ */
 public class Earth extends Ground
 {
     private int groundLevel;
@@ -12,9 +16,13 @@ public class Earth extends Ground
     private ArrayList<Color> holyLandColors;
    // private Color color;
     private int type; // 1=Grass, 2=Radiation, 3= HolyLand;
-    
-    
 
+
+    /**
+     * Constructor for an Earth object
+     * @param field
+     * @param areaLocation
+     */
     public Earth(Field field, AreaLocation areaLocation)
     {
     	super(field, areaLocation);
@@ -23,6 +31,13 @@ public class Earth extends Ground
     	setColors();
     	//setColor(groundLevel);
     }
+
+    /**
+     * Constructor for an Earth object
+     * @param field
+     * @param areaLocation
+     * @param level
+     */
     public Earth(Field field, AreaLocation areaLocation,int level)
     {
     	super(field, areaLocation);
@@ -32,7 +47,10 @@ public class Earth extends Ground
     	//setColor(groundLevel);
     	
     }
-	
+
+    /**
+     * Setter for colors
+     */
     public void setColors(){
     	grassColors 		= new ArrayList<Color>();
     	radiationColors 	= new ArrayList<Color>();
@@ -65,11 +83,20 @@ public class Earth extends Ground
     	}
     	
     }
-    
+
+    /**
+     * Getter for a color
+     * @return a Color
+     */
     public Color getColor() {
 		return setColor(groundLevel);
 	}
 
+    /**
+     * Another setter for colors, which uses the value of the ground.
+     * @param value
+     * @return
+     */
 	public Color setColor(int value) {
 			
 			if(value>=GROUND_MAX_LEVEL){
@@ -88,13 +115,20 @@ public class Earth extends Ground
 			}
 			
 		}
-    
-    
+
+    /**
+     * Getter for the ground level
+     * @return
+     */
     public int getGroundLevel()
     {
     	return groundLevel;
     }
-    
+
+    /**
+     * Decrease the ground level.
+     * @param amount
+     */
 	public void lowerLevel(int amount)
 	{
     	if(groundLevel>GROUND_MIN_LEVEL+amount)
@@ -104,7 +138,11 @@ public class Earth extends Ground
     		groundLevel=0;
     	}
 	}
-    
+
+    /**
+     * Increase the groud level.
+     * @param amount
+     */
 	public void higherLevel(int amount)
 	{
     	if(groundLevel<GROUND_MAX_LEVEL-amount)
@@ -130,17 +168,27 @@ public class Earth extends Ground
  		
  		
 	}
- 	
+
+    /**
+     * Decrease the ground level when an actor walks on it.
+     */
 	public void walkedOn()
 	{
 		lowerLevel(3);
 	}
- 	
+
+    /**
+     * Decrease the ground level when the ground is being eaten (when it's grass).
+     */
 	public void beingEaten()
 	{
 		lowerLevel(6);
 	}
- 	 
+
+    /**
+     * Converts the ground, according to the ground level.
+     * For example, grass can be converted to radiation.
+     */
 	public void special()
 	{
 		if(type==1){
@@ -151,7 +199,14 @@ public class Earth extends Ground
 			type=1;
 		}
 	}
-	
+
+    /**
+     * Converts the ground, according to the ground level.
+     * For example, grass can be converted to radiation.
+     *
+     * This method uses the ground level..
+     * @param level
+     */
 	public void special(int level)
 	{
 		if(type==1){
@@ -167,7 +222,7 @@ public class Earth extends Ground
 	}
 	
 	/**
-	 * Return the animal's location.
+	 * Return the arealocation
      * @return The animal's location.
      */
 	public AreaLocation getAreaLocation()
@@ -177,7 +232,7 @@ public class Earth extends Ground
     
     /**
      * Place the animal at the new location in the given field.
-     * @param newLocation The animal's new location.
+     * @param newAreaLocation The animal's new location.
      */
     public void setAreaLocation(AreaLocation newAreaLocation)
     {
@@ -197,8 +252,10 @@ public class Earth extends Ground
         return field;
     }
 
-	
-	
+    /**
+     * Returns true if the earth object is deadly.
+     * @return true or false
+     */
 	public boolean isDeadly()
 	{
 		if(type==2&&groundLevel>0){
@@ -206,14 +263,19 @@ public class Earth extends Ground
 		}
 		return false;
 	}
-	
-	
 
+    /**
+     * Setter for the ground level
+     * @param level
+     */
 	public void setLevel(int level){
 		groundLevel = level;
 	}
-	
-	
+
+    /**
+     * Getter for ground type
+     * @return
+     */
 	public int getType() {
 		return type;
 	}
