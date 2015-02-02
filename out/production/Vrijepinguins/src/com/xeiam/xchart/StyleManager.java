@@ -34,7 +34,7 @@ import com.xeiam.xchart.internal.style.XChartTheme;
 public class StyleManager {
 
   /**
-   * Note: For github.model.Area Charts, the X-Axis data must be in ascending order.
+   * Note: For vrijepinguins.model.Area Charts, the X-Axis data must be in ascending order.
    */
   public enum ChartType {
 
@@ -124,7 +124,7 @@ public class StyleManager {
   private TextAlignment xAxisLabelAlignment = TextAlignment.Centre;
   private TextAlignment yAxisLabelAlignment = TextAlignment.Left;
 
-  // Chart Plot github.model.Area ///////////////////////////////
+  // Chart Plot vrijepinguins.model.Area ///////////////////////////////
   private boolean isPlotGridLinesVisible;
   private Color plotBackgroundColor;
   private Color plotBorderColor;
@@ -138,7 +138,7 @@ public class StyleManager {
   private boolean isBarsOverlapped;
   private boolean isBarFilled;
 
-  // Line, Scatter, github.model.Area Charts ///////////////////////////////
+  // Line, Scatter, vrijepinguins.model.Area Charts ///////////////////////////////
   private int markerSize;
 
   // Error Bars ///////////////////////////////
@@ -212,7 +212,7 @@ public class StyleManager {
     yAxisMax = null;
     axisTickSpacePercentage = .95;
 
-    // Chart Plot github.model.Area ///////////////////////////////
+    // Chart Plot vrijepinguins.model.Area ///////////////////////////////
     isPlotGridLinesVisible = theme.isPlotGridLinesVisible();
     plotBackgroundColor = theme.getPlotBackgroundColor();
     plotBorderColor = theme.getPlotBorderColor();
@@ -226,7 +226,7 @@ public class StyleManager {
     isBarsOverlapped = theme.isBarsOverlapped();
     isBarFilled = theme.isBarFilled();
 
-    // Line, Scatter, github.model.Area Charts ///////////////////////////////
+    // Line, Scatter, vrijepinguins.model.Area Charts ///////////////////////////////
 
     markerSize = theme.getMarkerSize();
 
@@ -906,7 +906,7 @@ public class StyleManager {
     this.yAxisLabelAlignment = yAxisLabelAlignment;
   }
 
-  // Chart Plot github.model.Area ///////////////////////////////
+  // Chart Plot vrijepinguins.model.Area ///////////////////////////////
 
   /**
    * sets the visibility of the gridlines on the plot area
@@ -1060,7 +1060,7 @@ public class StyleManager {
     return isBarFilled;
   }
 
-  // Line, Scatter, github.model.Area Charts ///////////////////////////////
+  // Line, Scatter, vrijepinguins.model.Area Charts ///////////////////////////////
 
   /**
    * Sets the size of the markers in pixels
