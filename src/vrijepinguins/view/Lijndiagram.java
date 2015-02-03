@@ -143,12 +143,12 @@ public class Lijndiagram implements ExampleChart {
     	chart.setXAxisTitle("Stappen");
     	chart.setYAxisTitle("Animals");
     	//yData = getRandomData(5);
-    	chart.addSeries("Rabbit", null, bData).setLineColor(Color.WHITE);
-    	chart.addSeries("Fox", null, vData).setLineColor(Color.BLUE);
-    	chart.addSeries("Penguin", null, pData).setLineColor(Color.CYAN);
-    	chart.addSeries("Cockroach", null, cData).setLineColor(new Color(127,51,0));
-    	chart.addSeries("Hunter",null, hData).setLineColor(Color.RED);
-    	chart.addSeries("Druids",null,dData).setLineColor(Color.GRAY);
+    	chart.addSeries("Rabbit", null, bData).setLineColor(new Color(230,230,230)).setMarkerColor(new Color(230,230,230));
+    	chart.addSeries("Fox", null, vData).setLineColor(Color.BLUE).setMarkerColor(Color.BLUE);
+    	chart.addSeries("Penguin", null, pData).setLineColor(Color.CYAN).setMarkerColor(Color.CYAN);
+    	chart.addSeries("Cockroach", null, cData).setLineColor(new Color(127,51,0)).setMarkerColor(new Color(127,51,0));
+    	chart.addSeries("Hunter",null, hData).setLineColor(Color.RED).setMarkerColor(Color.RED);
+    	chart.addSeries("Druids",null,dData).setLineColor(Color.GRAY).setMarkerColor(Color.GRAY);
     	
     	
     	
