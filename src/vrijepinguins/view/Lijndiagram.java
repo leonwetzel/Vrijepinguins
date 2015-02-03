@@ -39,19 +39,13 @@ import com.xeiam.xchart.demo.charts.ExampleChart;
  */
 public class Lijndiagram implements ExampleChart {
 
-    private List<Double> bData;
-    private List<Double> vData;
-    private List<Double> pData;
-    private List<Double> cData, hData, dData;
+    private List<Double> bData,cData, hData, dData, pData, vData;
     private List<Double> yData;
-    // private ArrayList<List<Double>> data;
-    private double b = 0.00,v = 0.00,p = 0.00,c = 0.00;
+    //private double b = 0.00,v = 0.00,p = 0.00,c = 0.00;
     
 
-    public static final String KONIJNEN 	= "Rabbit";
-    public static final String VOSSEN 		= "Fox";
-    public static final String PENGUIN 		= "Penguin";
-    public static final String COCKROACH 	= "Cockroach";
+    public static final String KONIJNEN = "Rabbit",VOSSEN = "Fox",PENGUIN = "Penguin";
+    public static final String COCKROACH = "Cockroach";
     private XChartPanel chartPanel;
 
     public Lijndiagram() {
@@ -105,7 +99,9 @@ public class Lijndiagram implements ExampleChart {
 		ArrayList<String> nameArray = new ArrayList<String>();
 		ArrayList<Double> amountArray = new ArrayList<Double>();
 		
-		String pop2 = populationDetails.replace(":","");
+		String pop2 = populationDetails.replace("vrijepinguins.model.","");
+		pop2 = pop2.replace(":","");
+		
 		String[] stringArray = pop2.split(" ");
 		for(int i =0;i<stringArray.length;i++)
 		{
@@ -118,19 +114,21 @@ public class Lijndiagram implements ExampleChart {
 		
 		
 		
-		setbData(amountArray.get(0));
+		sethData(amountArray.get(0));
 		setvData(amountArray.get(1));
-		setpData(amountArray.get(2));
+		setpData(amountArray.get(2)/10);
 		setcData(amountArray.get(3));
-		sethData(amountArray.get(4));
-		//setdData(amountArray.get(5));
+		setbData(amountArray.get(4));
+		setdData(amountArray.get(5));
 		
-		chartPanel.updateSeries(nameArray.get(0),getbData());
+		chartPanel.updateSeries(nameArray.get(0),gethData());
 		chartPanel.updateSeries(nameArray.get(1),getvData());
 		chartPanel.updateSeries(nameArray.get(2),getpData());
 		chartPanel.updateSeries(nameArray.get(3),getcData());
-		chartPanel.updateSeries(nameArray.get(4),gethData());
-		//chartPanel.updateSeries(nameArray.get(5),getdData());
+		chartPanel.updateSeries(nameArray.get(4),getbData());
+		chartPanel.updateSeries(nameArray.get(5),getdData());
+		
+		updateData();
 	}
 	
 	//public void putData(HashMap )
@@ -138,21 +136,17 @@ public class Lijndiagram implements ExampleChart {
 	
 	
     public Chart getChart(){
-    	/*bData = getRandomData(6);
-    	vData = getRandomData(6);
-    	pData = getRandomData(7);
-    	cData = getRandomData(8);*/
     	
     	// Create Chart
-    	Chart chart = new Chart(250,200);
+    	Chart chart = new Chart(500,400);
     	chart.setChartTitle("vrijepinguins.view.Lijndiagram");
     	chart.setXAxisTitle("Stappen");
     	chart.setYAxisTitle("Animals");
-    	yData = getRandomData(5);
-    	chart.addSeries(KONIJNEN, null, bData).setLineColor(Color.WHITE);
-    	chart.addSeries(VOSSEN, null, vData).setLineColor(Color.BLUE);
-    	chart.addSeries(PENGUIN, null, pData).setLineColor(Color.CYAN);
-    	chart.addSeries(COCKROACH, null, cData).setLineColor(new Color(127,51,0));
+    	//yData = getRandomData(5);
+    	chart.addSeries("Rabbit", null, bData).setLineColor(Color.WHITE);
+    	chart.addSeries("Fox", null, vData).setLineColor(Color.BLUE);
+    	chart.addSeries("Penguin", null, pData).setLineColor(Color.CYAN);
+    	chart.addSeries("Cockroach", null, cData).setLineColor(new Color(127,51,0));
     	chart.addSeries("Hunter",null, hData).setLineColor(Color.RED);
     	chart.addSeries("Druids",null,dData).setLineColor(Color.GRAY);
     	
@@ -162,15 +156,6 @@ public class Lijndiagram implements ExampleChart {
     	
     }
 
-    
-    private List<Double> getRandomData(int numPoints) {
-
-        List<Double> data = new ArrayList<Double>();
-        for (int i = 0; i < numPoints; i++) {
-            data.add(Math.random() * 100);
-        }
-        return data;
-    }
 
     public void updateData() {
 
@@ -182,12 +167,12 @@ public class Lijndiagram implements ExampleChart {
         vData.addAll(vosData);*/
 
         // Limit the total number of points
-        while (	bData.size() > 100000 &&
-        		vData.size() > 100000 &&
-        		pData.size() > 100000 &&
-        		cData.size() > 100000 &&
-        		hData.size() > 100000 &&
-        		dData.size() > 100000) {
+        while (	bData.size() > 200 &&
+        		vData.size() > 200 &&
+        		pData.size() > 200 &&
+        		cData.size() > 200 &&
+        		hData.size() > 200 &&
+        		dData.size() > 200) {
             bData.remove(0);
             vData.remove(0);
             pData.remove(0);
@@ -196,12 +181,12 @@ public class Lijndiagram implements ExampleChart {
             dData.remove(0);
         }
         
-       chartPanel.updateSeries(KONIJNEN,getbData());
-       chartPanel.updateSeries(VOSSEN,getvData());
-       chartPanel.updateSeries(PENGUIN,getpData());
-       chartPanel.updateSeries(COCKROACH,getcData());
-       chartPanel.updateSeries("Hunter",getpData());
-       chartPanel.updateSeries("Druids",getcData());
+       chartPanel.updateSeries(KONIJNEN,getpData());
+       chartPanel.updateSeries(VOSSEN,getdData());
+       chartPanel.updateSeries(PENGUIN,getcData());
+       chartPanel.updateSeries(COCKROACH,gethData());
+       chartPanel.updateSeries("Hunter",getvData());
+       chartPanel.updateSeries("Druids",getbData());
 
     }
 
@@ -243,52 +228,4 @@ public class Lijndiagram implements ExampleChart {
     public void setdData(double amount){
     	dData.add(amount);
     }
-    public void setyData(double amount){
-    	yData.add(amount);
-    }
 }
-
-	//Setup the panel
-	// final Lijndiagram lijndiagram = new Lijndiagram();
-	//  final XChartPanel chartPanel = lijndiagram.buildPanel();
-	//  final XChartPanel vosPanel = lijndiagram.buildPanel();
-
-
- 	// Schedule a job for the event-dispatching thread:
- 	// creating and showing this application's GUI.
- 	// javax.swing.SwingUtilities.invokeLater(new Runnable() {
-	//  	JPanel panel = new JPanel();
- 	
- 	//@Override
-	// public void run() {
-
-	// Create and set up the window.
-
- 	//JFrame frame = new JFrame("Staafdiagram (Vossen & Konijnen)");
- 	///frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
-	//  panel.add(chartPanel);
-	//  panel.add(vosPanel);
-
-	// Display the window.
- 	//frame.pack();
- 	//frame.setVisible(true);
- 	//    }
- 	// });
-
- 	// Simulate a data feed
-	// TimerTask chartUpdaterTask = new TimerTask() {
-
-	//
-	//     @Override
-	//     public void run() {
-
- 	//        lijndiagram.updateData();
-	//         chartPanel.updateSeries(KONIJNEN, lijndiagram.getyData());
-	//         vosPanel.updateSeries(VOSSEN, lijndiagram.getvData());
-	//      }
-	//  };
-
-	//  Timer timer = new Timer();
-	// timer.scheduleAtFixedRate(chartUpdaterTask, 0, 500);
-
-

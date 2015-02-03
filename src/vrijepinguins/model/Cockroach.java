@@ -19,7 +19,7 @@ public class Cockroach extends Animal
     // The age at which a cockroach can start to breed.
     private static final int BREEDING_AGE = 7;
     // The age to which a cockroach can live.
-    private static final int MAX_AGE = 30;
+    private static final int MAX_AGE = 28;
     // The likelihood of a cockroach breeding.
     private static final double BREEDING_PROBABILITY = 0.04;
     // The maximum number of births.
@@ -51,7 +51,7 @@ public class Cockroach extends Animal
         super(field, location);
         
         if(randomAge) {
-            age = rand.nextInt(MAX_AGE);
+            age = MAX_AGE-1;
             foodLevel = rand.nextInt(GRASS_FOOD_VALUE);
         }
         else{
@@ -172,4 +172,6 @@ public class Cockroach extends Animal
     	}
     	return null;
     }
+    
+    
 }

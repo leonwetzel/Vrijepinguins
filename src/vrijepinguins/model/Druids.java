@@ -150,14 +150,17 @@ public class Druids implements Actor
 	    	}
 	    	switch(spells){
 	    	case 0: castBunny(actors);
+	    		manaPool=50;
 	    	break;
 	    	case 1: castFox(actors);
+	    		manaPool=50;
 	    	break;
 	    	case 2: castPenguin(actors);
+	    		manaPool=0;
 	    	break;
 	    	}
 	    	spells++;
-	    	manaPool = 0;
+	    	
     	}
     }
 

@@ -43,7 +43,7 @@ public class SimulatorView extends JFrame
     // A statistics object computing and storing simulation information
     private FieldStats stats;
 
-    private String populationDetails = "Hunter: 0 Rabbit: 0 Penguin: 0 Druids: 0 Fox: 0 ";
+    private String populationDetails = "Cockroach: 0 Hunter: 0 Rabbit: 0 Penguin: 0 Druids: 0 Fox: 0";
     
 
     // MenuItems
@@ -62,7 +62,7 @@ public class SimulatorView extends JFrame
     vrijepinguins.view.Button button;
     
     //diagrammen
-    Lijndiagram lijnDiagram;
+    public Lijndiagram lijnDiagram;
     
     /**
      * Create a view of the given width and height.
@@ -123,6 +123,10 @@ public class SimulatorView extends JFrame
         setVisible(true);
     }
 
+    public void lijnDiagramUpdateData(){
+    	lijnDiagram.putData(populationDetails);
+    }
+    
     /**
      * Creates an input frame.
      */

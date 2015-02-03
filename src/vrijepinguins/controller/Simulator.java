@@ -207,7 +207,7 @@ public class Simulator implements Runnable {
         // Add new actors to the main lists.
         actors.addAll(newActors);
         areas.addAll(newAreas);
-        //view.lijnDiagram.putData(populationDetails);
+        view.lijnDiagramUpdateData();;
         view.showStatus(step, field);
     }
         
@@ -236,7 +236,11 @@ public class Simulator implements Runnable {
         Random rand = Randomizer.getRandom();
         field.clear();
         areas.clear();
-
+        Location cockLoc = new Location(0,0);
+        Cockroach cockroach = new Cockroach(true, field, cockLoc);
+        actors.add(cockroach);
+        
+        
         for(int row = 0; row < field.getDepth(); row++) {
             for(int col = 0; col < field.getWidth(); col++) {
             	Location location = new Location(row,col);
@@ -341,7 +345,7 @@ public class Simulator implements Runnable {
 				if(field.getObjectAt(row, col)==null){
 					if(rand.nextDouble()<=0.10){
 						Location location = new Location(row, col);
-						Cockroach cockroach = new Cockroach(true, field, location);
+						Cockroach cockroach = new Cockroach(false, field, location);
 	                	actors.add(cockroach);
 					}
 				}
