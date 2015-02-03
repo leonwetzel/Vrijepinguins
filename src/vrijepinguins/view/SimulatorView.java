@@ -54,12 +54,21 @@ public class SimulatorView extends JFrame
     //JFrames
     JFrame aInput;
     JFrame aboutFrame;
+    JFrame error;
+    //JButton
+    public JButton submit;
     
     //JPanels
     JPanel container;
     
     //Buttons object
     vrijepinguins.view.Button button;
+    
+    //array for animal properties
+    private int[] fox;
+    private int[] rabbit;
+    private int[] penguin;
+    
     
     //diagrammen
     public Lijndiagram lijnDiagram;
@@ -73,6 +82,11 @@ public class SimulatorView extends JFrame
     {  
     	// maak het frame en dergelijke
     	//setLocation(410, 0);
+    	fox = new int[3];
+    	rabbit = new int[3];
+    	penguin = new int[3];
+    	button = new Button();
+    	error = new JFrame();
     	
     	setTitle("Vossen & Konijnen, uitgevoerd door Vrijepinguins");
         stats = new FieldStats();
@@ -90,10 +104,12 @@ public class SimulatorView extends JFrame
         button = new Button();
         JPanel lbuttons = new JPanel();
         button.makeleftSidebarButtons(this,lbuttons);
+        submit = new JButton("submit");
         JPanel buttonBox = new JPanel();
         buttonBox.setLayout(new GridLayout());
         buttonBox.add(lbuttons);
         //maak invoervelden voor de verschillende dieren
+        
         
         //make Diagrams
         lijnDiagram = new Lijndiagram();
@@ -127,6 +143,36 @@ public class SimulatorView extends JFrame
     	lijnDiagram.putData(populationDetails);
     }
     
+    public void getInput(){
+    	//Filling the array for fox properties
+		try{
+	    	fox[0] = button.mAgeField.getValue(); 
+	    	fox[1] = button.aNakField.getValue(); 
+	    	fox[2] = button.vLefField.getValue(); 
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null,"Only numbers accepted","Numbers", JOptionPane.PLAIN_MESSAGE);	
+		}
+		System.out.println(fox[0]+fox[1]+fox[2]);
+    	    	
+    	//Filling the array for rabbit properties
+		try{
+	    	rabbit[0] = button.mAgeField2.getValue(); 
+	    	rabbit[1] = button.aNakField2.getValue();
+	    	rabbit[2] = button.vLefField2.getValue();
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null,"Only numbers accepted","Numbers", JOptionPane.PLAIN_MESSAGE);	
+		}
+        	
+    	//Filling the array for penguin properties
+		try{
+	    	penguin[0] = button.mAgeField3.getValue(); 
+	    	penguin[1] = button.aNakField3.getValue(); 
+	    	penguin[2] = button.vLefField3.getValue(); 
+		}catch(Exception e){
+			JOptionPane.showMessageDialog(null,"Only numbers accepted","Numbers", JOptionPane.PLAIN_MESSAGE);	
+		}
+    }
+    
     /**
      * Creates an input frame.
      */
@@ -141,11 +187,24 @@ public class SimulatorView extends JFrame
         button.rabbitProperties(container);
         //new grid for penguin property inputs
         button.penguinProperties(container);
+        
+        container.add(submit);
         frame.add(container);
         frame.pack();
         frame.setResizable(false);
         frame.setVisible(true);
     }
+    
+    public int[] getFoxArray(){
+		return fox;
+	}
+	public int[] getRabbitArray(){
+		return rabbit;
+	}
+	public int[] getPenguinArray(){
+		return penguin;
+	}
+
     /**
      * Define a color to be used for a given class of animal.
      * @param animalClass The animal's Class object.
@@ -356,18 +415,6 @@ public class SimulatorView extends JFrame
     	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
     	String filePath = "extraFiles//images//background.jpg";
     	setImage(filePath,container);
-    	/*
-    	File file = new File(filePath);
-    	BufferedImage images = null;
-    	try{
-    		images = ImageIO.read(file);
-    	}catch(Exception e){
-    		System.out.println("Geen image, voer een image in bij de map extraFiles/Images genaamd background.jpg");
-    	}
-    	if(images!=null){
-    		JLabel label = new JLabel(new ImageIcon(images));
-    		container.add(label);
-    	}*/
 		
     	JPanel infoPanel = new JPanel();
     	infoPanel.setBackground(Color.WHITE);

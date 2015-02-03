@@ -19,12 +19,15 @@ public class Penguin extends Animal
     
     // The age at which a penguin can start to breed.
     private static final int BREEDING_AGE = 5;
+    private int breeding_age = BREEDING_AGE;
     // The age to which a penguin can live.
     private static final int MAX_AGE = 26;
+    private int max_age = MAX_AGE;
     // The likelihood of a penguin breeding.
     private static final double BREEDING_PROBABILITY = 0.06;
     // The maximum number of births.
     private static final int MAX_LITTER_SIZE = 2;
+    private int max_litter_size = MAX_LITTER_SIZE;
     // The food value of a single rabbit. In effect, this is the
     // number of steps a penguin can go before it has to eat again.
     private static final int RABBIT_FOOD_VALUE = 7;
@@ -48,11 +51,21 @@ public class Penguin extends Animal
      * @param field The field currently occupied.
      * @param location The location within the field.
      */
-    public Penguin(boolean randomAge, Field field, Location location)
+    public Penguin(boolean randomAge, Field field, Location location, Integer mAge, Integer aNak, Integer vLef)
     {
         super(field, location);
+        if(mAge !=0){
+        	max_age = mAge;
+        }
+        if(aNak != 0){
+        	max_litter_size = aNak;
+        }
+        if(vLef != 0){
+        	breeding_age = vLef;
+        }
+        	      
         if(randomAge) {
-            age = rand.nextInt(MAX_AGE);
+            age = rand.nextInt(max_age);
             foodLevel = rand.nextInt(RABBIT_FOOD_VALUE)+rand.nextInt(FOX_FOOD_VALUE);
         }
         else {
@@ -97,7 +110,7 @@ public class Penguin extends Animal
     private void incrementAge()
     {
         age++;
-        if(age > MAX_AGE) {
+        if(age > max_age) {
             setDead();
         }
     }
@@ -169,7 +182,7 @@ public class Penguin extends Animal
         int births = breed();
         for(int b = 0; b < births && free.size() > 0; b++) {
             Location loc = free.remove(0);
-            Penguin young = new Penguin(false, field, loc);
+            Penguin young = new Penguin(false, field, loc, max_age, max_litter_size, breeding_age);
             newPenguin.add(young);
         }
     }
@@ -183,7 +196,7 @@ public class Penguin extends Animal
     {
         int births = 0;
         if(canBreed() && rand.nextDouble() <= BREEDING_PROBABILITY) {
-            births = rand.nextInt(MAX_LITTER_SIZE) + 1;
+            births = rand.nextInt(max_litter_size) + 1;
         }
         return births;
     }
@@ -193,6 +206,18 @@ public class Penguin extends Animal
      */
     private boolean canBreed()
     {
-        return age >= BREEDING_AGE;
+        return age >= breeding_age;
+    }
+    
+    public Integer getMaxLitterSize(){
+    	return max_litter_size;
+    }
+    
+    public Integer getMaxAge(){
+    	return max_age;
+    }
+    
+    public Integer getBreedingAge(){
+    	return breeding_age;
     }
 }

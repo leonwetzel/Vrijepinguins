@@ -116,8 +116,8 @@ public class Lijndiagram implements ExampleChart {
 		
 		sethData(amountArray.get(0));
 		setvData(amountArray.get(1));
-		setpData(amountArray.get(2)/10);
-		setcData(amountArray.get(3));
+		setpData(amountArray.get(2));
+		setcData(amountArray.get(3)/10);
 		setbData(amountArray.get(4));
 		setdData(amountArray.get(5));
 		
@@ -181,11 +181,11 @@ public class Lijndiagram implements ExampleChart {
             dData.remove(0);
         }
         
-       chartPanel.updateSeries(KONIJNEN,getpData());
-       chartPanel.updateSeries(VOSSEN,getdData());
-       chartPanel.updateSeries(PENGUIN,getcData());
-       chartPanel.updateSeries(COCKROACH,gethData());
-       chartPanel.updateSeries("Hunter",getvData());
+       chartPanel.updateSeries(KONIJNEN,getcData());
+       chartPanel.updateSeries(VOSSEN,getpData());
+       chartPanel.updateSeries(PENGUIN,getvData());
+       chartPanel.updateSeries(COCKROACH,getdData());
+       chartPanel.updateSeries("Hunter",gethData());
        chartPanel.updateSeries("Druids",getbData());
 
     }
