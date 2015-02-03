@@ -32,7 +32,7 @@ public class Button{
     JTextField aNakField;
     JTextField vLefField;
     
-    public void rabbitProperties(){
+    public void rabbitProperties(JPanel container){
     	JPanel cRabbit = new JPanel();
         cRabbit.setLayout(new BorderLayout());
         JPanel gridLayoutPane2 = new JPanel(); 
@@ -56,12 +56,12 @@ public class Button{
         gridLayoutPane2.add(aNakField2);
         cRabbit.add(gridLayoutPane2, BorderLayout.CENTER);
         cRabbit.add(animalLabel2, BorderLayout.NORTH);
-        sim.container.add(cRabbit);
-        sim.container.add(Box.createRigidArea(new Dimension(0,10)));
+        container.add(cRabbit);
+        container.add(Box.createRigidArea(new Dimension(0,10)));
     }
     
     
-    public void penguinProperties(){
+    public void penguinProperties(JPanel container){
     	JPanel cPenguin = new JPanel();
         cPenguin.setLayout(new BorderLayout());
         JPanel gridLayoutPane3 = new JPanel(); 
@@ -85,11 +85,11 @@ public class Button{
         gridLayoutPane3.add(aNakField3);
         cPenguin.add(gridLayoutPane3, BorderLayout.CENTER);
         cPenguin.add(animalLabel3, BorderLayout.NORTH);
-        sim.container.add(cPenguin);
-        sim.container.add(Box.createRigidArea(new Dimension(0,10)));
+        container.add(cPenguin);
+        container.add(Box.createRigidArea(new Dimension(0,10)));
     }
     
-    public void foxProperties(){
+    public void foxProperties(JPanel container){
     	 JPanel cFox = new JPanel();
          cFox.setLayout(new BorderLayout());
          JPanel gridLayoutPane = new JPanel(); 
@@ -115,8 +115,8 @@ public class Button{
          gridLayoutPane.add(submit);
          cFox.add(gridLayoutPane, BorderLayout.CENTER);
          cFox.add(animalLabel, BorderLayout.NORTH);
-         sim.container.add(cFox);
-         sim.container.add(Box.createRigidArea(new Dimension(0,10)));
+         container.add(cFox);
+         container.add(Box.createRigidArea(new Dimension(0,10)));
     }
     
     /**

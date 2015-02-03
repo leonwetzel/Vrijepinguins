@@ -136,11 +136,11 @@ public class SimulatorView extends JFrame
     	container.setLayout(new BoxLayout(container, BoxLayout.Y_AXIS));
         //frame.setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         //new grid for fox property inputs
-        button.foxProperties();
+        button.foxProperties(container);
         //new grid for rabbit property inputs
-        button.rabbitProperties();
+        button.rabbitProperties(container);
         //new grid for penguin property inputs
-       button.penguinProperties();
+        button.penguinProperties(container);
         frame.add(container);
         frame.pack();
         frame.setResizable(false);
